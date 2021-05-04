@@ -19,7 +19,7 @@ class CreateRelawanTable extends Migration
             $table->string('nama_depan');
             $table->string('nama_belakang');
             $table->string('alamat_ktp');
-            $table->string('no_wa');
+            $table->string('no_wa')->unique();
             $table->foreignId('id_provinsi');
             $table->foreignId('id_kab');
             $table->foreignId('id_kec');
