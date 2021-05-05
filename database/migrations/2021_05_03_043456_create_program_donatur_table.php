@@ -15,7 +15,22 @@ class CreateProgramDonaturTable extends Migration
     {
         Schema::create('program_donatur', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('id_program')->constrained('program');
+            $table->unsignedBigInteger('nominal_donasi');
+            $table->foreignId('id_rekening')->constrained('rekening');
+            $table->string('nama_pengirim');
+            $table->string('no_rekening_pengirim')->unique();
+            $table->string('nama_atas_nama');
+            $table->string('email');
+            $table->text('pesan');
+            $table->string('status_verifikasi');
+            $table->string('status_donasi');
+            $table->timestamp('inserted_at');
+            $table->string('inserted_by');
+            $table->timestamp('edited_at');
+            $table->string('edited_by');
+            $table->timestamp('verfied_at');
+            $table->string('verified_by');
         });
     }
 
