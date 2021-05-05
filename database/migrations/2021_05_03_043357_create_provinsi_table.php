@@ -15,7 +15,12 @@ class CreateProvinsiTable extends Migration
     {
         Schema::create('provinsi', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nama');
+            $table->boolean('is_verified');
+            $table->timestamp('inserted_at');
+            $table->string('inserted_by');
+            $table->timestamp('edited_at');
+            $table->string('edited_by');
         });
     }
 
