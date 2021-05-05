@@ -18,19 +18,19 @@ class CreateProgramDonaturTable extends Migration
             $table->foreignId('id_program')->constrained('program');
             $table->unsignedBigInteger('nominal_donasi');
             $table->foreignId('id_rekening')->constrained('rekening');
-            $table->string('nama_pengirim');
+            $table->string('nama_pengirim', 50);
             $table->string('no_rekening_pengirim')->unique();
-            $table->string('nama_atas_nama');
+            $table->string('nama_atas_nama', 50);
             $table->string('email');
             $table->text('pesan');
             $table->string('status_verifikasi');
             $table->string('status_donasi');
             $table->timestamp('inserted_at');
-            $table->string('inserted_by');
+            $table->string('inserted_by', 50);
             $table->timestamp('edited_at');
-            $table->string('edited_by');
+            $table->string('edited_by', 50);
             $table->timestamp('verfied_at');
-            $table->string('verified_by');
+            $table->string('verified_by', 50);
         });
     }
 

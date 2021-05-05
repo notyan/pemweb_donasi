@@ -16,8 +16,8 @@ class CreateRelawanTable extends Migration
         Schema::create('relawan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->constrained('user');
-            $table->string('nama_depan');
-            $table->string('nama_belakang');
+            $table->string('nama_depan', 50);
+            $table->string('nama_belakang', 50);
             $table->string('alamat_ktp');
             $table->string('no_wa')->unique();
             $table->foreignId('id_provinsi')->constrained('provinsi');
@@ -31,9 +31,9 @@ class CreateRelawanTable extends Migration
             $table->string('email')->unique();
             $table->boolean('is_verified');
             $table->timestamp('inserted_at');
-            $table->string('inserted_by');
+            $table->string('inserted_by', 50);
             $table->timestamp('edited_at');
-            $table->string('edited_by');
+            $table->string('edited_by', 50);
         });
     }
 
