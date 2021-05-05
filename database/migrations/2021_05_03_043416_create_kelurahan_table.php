@@ -14,8 +14,15 @@ class CreateKelurahanTable extends Migration
     public function up()
     {
         Schema::create('kelurahan', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id');
+            $table->string('nama', 50);
+            $table->foreignID('id_kecamatan')->constrained('kecamatan');
+            $table->boolean("is_verified");
+            $table->timestamp('inserted_at');
+            $table->string('inserted_by', 50);
+            $table->timestamp('edited_at');
+            $table->string('edited_by', 50);
+
         });
     }
 
