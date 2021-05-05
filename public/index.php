@@ -53,3 +53,7 @@ $response = tap($kernel->handle(
 ))->send();
 
 $kernel->terminate($request, $response);
+
+register_shutdown_function(function(){
+    print_r(error_get_last());
+});
