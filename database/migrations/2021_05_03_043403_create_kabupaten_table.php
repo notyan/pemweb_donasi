@@ -13,9 +13,15 @@ class CreateKabupatenTable extends Migration
      */
     public function up()
     {
-        Schema::create('kabupaten', function (Blueprint $table) {
+        Schema::create('provinsi', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nama');
+            $table->foreignId('id_provinsi')->constrained('provinsi');
+            $table->boolean('is_verified');
+            $table->timestamp('inserted_at');
+            $table->string('inserted_by');
+            $table->timestamp('edited_at');
+            $table->string('edited_by');
         });
     }
 
