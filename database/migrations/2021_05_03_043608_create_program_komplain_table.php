@@ -14,8 +14,16 @@ class CreateProgramKomplainTable extends Migration
     public function up()
     {
         Schema::create('program_komplain', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id');
+            $table->foreignId('id_program')->constrained('program');
+            $table->text('complain');
+            $table->text('response');
+            $table->timestamp('inserted_at');
+            $table->string('inserted_by',100);
+            $table->timestamp('edited_at');
+            $table->string('edited_by',100);
+            $table->string('verified_by',100);
+            $table->timestamp('verified_at');
         });
     }
 
