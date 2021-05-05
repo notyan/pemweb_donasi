@@ -14,8 +14,18 @@ class CreateSaranTable extends Migration
     public function up()
     {
         Schema::create('saran', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id');
+            $table->string('nama',100);
+            $table->string('email');
+            $table->string('no_hp',13);
+            $table->string('subyek',100);
+            $table->string('konten',100);
+            $table->timestamp('inserted_at');
+            $table->string('inserted_by',100);
+            $table->timestamp('edited_at');
+            $table->string('edited_by',100);
+            $table->string('verified_by',100);
+            $table->timestamp('verified_at');
         });
     }
 
