@@ -18,9 +18,9 @@ class CreateKecamatanTable extends Migration
             $table->string('nama', 50);
             $table->foreignId('id_kabupaten')->constrained('kabupaten');
             $table->boolean('is_verified');
-            $table->timestamp('inserted_at');
+            $table->timestamps('inserted_at');
             $table->string('inserted_by', 50);
-            $table->timestamp('edited_at');
+            $table->timestamps('edited_at');
             $table->string('edited_by', 50);
         });
     }

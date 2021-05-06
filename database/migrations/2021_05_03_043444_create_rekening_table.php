@@ -15,7 +15,7 @@ class CreateRekeningTable extends Migration
     {
         Schema::create('rekening', function (Blueprint $table) {
             $table->id();
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 

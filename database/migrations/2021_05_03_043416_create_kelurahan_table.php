@@ -18,9 +18,9 @@ class CreateKelurahanTable extends Migration
             $table->string('nama', 50);
             $table->foreignID('id_kecamatan')->constrained('kecamatan');
             $table->boolean("is_verified");
-            $table->timestamp('inserted_at');
+            $table->timestamps('inserted_at');
             $table->string('inserted_by', 50);
-            $table->timestamp('edited_at');
+            $table->timestamps('edited_at');
             $table->string('edited_by', 50);
 
         });
