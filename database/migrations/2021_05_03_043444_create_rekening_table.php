@@ -14,15 +14,8 @@ class CreateRekeningTable extends Migration
     public function up()
     {
         Schema::create('rekening', function (Blueprint $table) {
-            $table->id('id');
-            $table->foreignId('id_vendor')->constrained('ref_vendor_saving');
-            $table->string('nama_rekening', 50);
-            $table->string('nomor_rekening', 50)->unique();
-            $table->boolean('is_active');
-            $table->timestamp('inserted_at');
-            $table->string('inserted_by');
-            $table->timestamp('edited_at');
-            $table->string('edited_by', 50);
+            $table->id();
+            $table->timestamp();
         });
     }
 
