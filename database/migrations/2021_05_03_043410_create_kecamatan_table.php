@@ -14,8 +14,14 @@ class CreateKecamatanTable extends Migration
     public function up()
     {
         Schema::create('kecamatan', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id');
+            $table->string('nama', 50);
+            $table->foreignId('id_kabupaten')->constrained('kabupaten');
+            $table->boolean('is_verified');
+            $table->timestamps('inserted_at');
+            $table->string('inserted_by', 50);
+            $table->timestamps('edited_at');
+            $table->string('edited_by', 50);
         });
     }
 
