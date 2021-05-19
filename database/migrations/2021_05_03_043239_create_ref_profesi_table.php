@@ -15,12 +15,12 @@ class CreateRefProfesiTable extends Migration
     {
         Schema::create('ref_profesi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('user');
+            $table->foreignId('id_user')->constrained('users');
             $table->string('nama', 50);
             $table->boolean('is_active');
             $table->timestamp('inserted_at');
             $table->string('inserted_by', 50);
-            $table->timestamp('edited_at');
+            $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
             $table->string('edited_by', 50);
         });
     }

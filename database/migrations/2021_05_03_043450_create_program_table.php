@@ -15,14 +15,14 @@ class CreateProgramTable extends Migration
     {
         Schema::create('program', function (Blueprint $table) {
             $table->id('id');
-            $table->foreignId('id_user')->constraint('user');
+            $table->foreignId('id_user')->constraint('users');
             $table->string('nama_program',100);
             $table->text('info');
             $table->string('target',100);
             $table->date('batas_akhir');             //RAGU DAN AMBIGU
             $table->timestamp('inserted_at');
             $table->string('inserted_by',100);
-            $table->timestamp('edited_at');
+            $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
             $table->string('edited_by',100);
         });
     }

@@ -15,7 +15,7 @@ class CreateRelawanTable extends Migration
     {
         Schema::create('relawan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('user');
+            $table->foreignId('id_user')->constrained('users');
             $table->string('nama_depan', 50);
             $table->string('nama_belakang', 50);
             $table->string('alamat_ktp');
@@ -32,7 +32,7 @@ class CreateRelawanTable extends Migration
             $table->boolean('is_verified');
             $table->timestamp('inserted_at');
             $table->string('inserted_by', 50);
-            $table->timestamp('edited_at');
+            $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
             $table->string('edited_by', 50);
         });
     }

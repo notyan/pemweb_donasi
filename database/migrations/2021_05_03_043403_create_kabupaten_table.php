@@ -13,14 +13,14 @@ class CreateKabupatenTable extends Migration
      */
     public function up()
     {
-        Schema::create('provinsi', function (Blueprint $table) {
+        Schema::create('kabupaten', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 50);
             $table->foreignId('id_provinsi')->constrained('provinsi');
             $table->boolean('is_verified');
             $table->timestamp('inserted_at');
             $table->string('inserted_by', 50);
-            $table->timestamp('edited_at');
+            $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
             $table->string('edited_by', 50);
         });
     }
