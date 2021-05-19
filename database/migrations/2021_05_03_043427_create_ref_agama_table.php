@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramBeritaTable extends Migration
+class CreateRefAgamaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateProgramBeritaTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_berita', function (Blueprint $table) {
-            $table->id('id');
-            $table->foreignId('id_program')->constrained('program');
-            $table->string('judul',100);
-            $table->string('konten_berita',100);
+        Schema::create('ref_agama', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_user')->constrained('users');
+            $table->string('nama', 50);
             $table->boolean('is_active');
-            $table->timestamp('inserted_at')->useCurrent();
-            $table->string('inserted_by',100);
+            $table->timestamp('inserted_at');
+            $table->string('inserted_by', 50);
             $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
-            $table->string('edited_by',100);
+            $table->string('edited_by', 50);
         });
     }
 
@@ -33,6 +32,6 @@ class CreateProgramBeritaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_berita');
+        Schema::dropIfExists('ref_agama');
     }
 }

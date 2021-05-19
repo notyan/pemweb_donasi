@@ -20,12 +20,12 @@ class CreateSaranTable extends Migration
             $table->string('no_hp',13);
             $table->string('subyek',100);
             $table->string('konten',100);
-            $table->timestamp('inserted_at');
+            $table->timestamp('inserted_at')->useCurrent();
             $table->string('inserted_by',100);
-            $table->timestamp('edited_at');
+            $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
             $table->string('edited_by',100);
             $table->string('verified_by',100);
-            $table->timestamp('verified_at');
+            $table->timestamp('verified_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
         });
     }
 
