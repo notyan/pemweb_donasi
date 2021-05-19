@@ -9,6 +9,8 @@ class ProgramDonatur extends Model
 {
     use HasFactory;
 
+    protected $table = "program_donatur";
+
     /**
      * Get the id_program that owns the ProgramDonatur
      *
