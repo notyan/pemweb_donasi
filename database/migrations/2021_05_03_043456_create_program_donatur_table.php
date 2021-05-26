@@ -19,7 +19,7 @@ class CreateProgramDonaturTable extends Migration
             $table->unsignedBigInteger('nominal_donasi');
             $table->foreignId('id_rekening')->constrained('rekening');
             $table->string('nama_pengirim', 50);
-            $table->string('no_rekening_pengirim')->unique();
+            $table->string('no_rekening_pengirim');
             $table->string('nama_atas_nama', 50);
             $table->string('email');
             $table->text('pesan');
