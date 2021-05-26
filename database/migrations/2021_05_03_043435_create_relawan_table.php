@@ -15,7 +15,7 @@ class CreateRelawanTable extends Migration
     {
         Schema::create('relawan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users');
+            $table->foreignId('id_user')->constrained('user');
             $table->string('nama_depan', 50);
             $table->string('nama_belakang', 50);
             $table->string('alamat_ktp');
