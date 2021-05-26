@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Relawan;
 
-class RelawanController extends Controller
+class RekeningnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -78,7 +77,7 @@ class RelawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) 
+    public function destroy($id)
     {
         //
     }
