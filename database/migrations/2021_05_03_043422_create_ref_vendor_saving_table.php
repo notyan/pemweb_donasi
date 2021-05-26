@@ -15,7 +15,7 @@ class CreateRefVendorSavingTable extends Migration
     {
         Schema::create('ref_vendor_saving', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('user');
+            $table->foreignId('id_user')->constrained('users');
             $table->string('nama', 50);
             $table->timestamp('inserted_at');
             $table->string('inserted_by', 50);

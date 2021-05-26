@@ -15,7 +15,7 @@ class CreateKontenBlogTable extends Migration
     {
         Schema::create('konten_blog', function (Blueprint $table) {
             $table->id('id');
-            $table->foreignId('id_user')->constraint('user');
+            $table->foreignId('id_user')->constraint('users');
             $table->string('judul',100);
             $table->string('konten',100);
             $table->timestamp('inserted_at')->useCurrent();
