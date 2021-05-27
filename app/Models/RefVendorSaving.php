@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class RefVendorSaving extends Model
 {
     use HasFactory;
+    protected $table = 'ref_vendor_saving';
 }
