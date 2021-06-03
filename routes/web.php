@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::prefix('admin')->middleware(['admin'])->group(static function () {
-    Route::resource('relawan', RelawanController::class);
+    Route::resource('superrelawan', RelawanController::class);
 });
 
 require __DIR__.'/auth.php';
