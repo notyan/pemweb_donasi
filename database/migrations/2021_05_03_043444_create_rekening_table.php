@@ -15,7 +15,7 @@ class CreateRekeningTable extends Migration
     {
         Schema::create('rekening', function (Blueprint $table) {
             $table->id('id');
-            $table->foreignId('id_vendor')->constrint('ref_vendor_saving');
+            $table->foreignId('id_vendor')->constrained('ref_vendor_saving');
             $table->string('nama_rekening',50);
             $table->string('nomor_rekening')->unique();
             $table->boolean('is_active');
