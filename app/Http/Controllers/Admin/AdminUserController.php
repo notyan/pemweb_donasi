@@ -91,7 +91,7 @@ class AdminUserController extends Controller
         User::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
             'level' => $request->level,
             'updated_at' => date("Y-m-d H:i:s"),
             'is_verified' => $request->is_verified,

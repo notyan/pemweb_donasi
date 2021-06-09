@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\RelawanController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::prefix('admin')->middleware(['admin'])->group(static function () {
-    Route::resource('superrelawan', RelawanController::class);
+    Route::resource('superuser', AdminUserController::class);
 });
 
 require __DIR__.'/auth.php';
