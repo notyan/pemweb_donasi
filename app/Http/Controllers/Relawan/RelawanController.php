@@ -1,27 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Relawan;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
-date_default_timezone_set('Asia/Jakarta');
 
 class RelawanController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('relawan.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
+     * Show the form for register as relawan.
      *
      * @return \Illuminate\Http\Response
      */
@@ -36,7 +25,7 @@ class RelawanController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly registered relawan in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -75,18 +64,28 @@ class RelawanController extends Controller
             'token' => rand(100000, 999999),
             'email' => $email,
             'is_verified' => 0,
+            'inserted_at' => now(),
             'inserted_by' => Auth::user()->name,
             'edited_by' => Auth::user()->name,
         ]);
     }
 
+    /**
+     * Show the form for verify as relawan.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function verification()
     {
-        $data = DB::table('relawan')->where('id_user', Auth::id())->get();
-
-        return view('relawan.verification', compact('data'));
+        return view('relawan.verification');
     }
 
+    /**
+     * Update a newly verified relawan in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function verify(Request $request)
     {
         $data = DB::table('relawan')->where('id_user', Auth::id())->get();
@@ -124,5 +123,10 @@ class RelawanController extends Controller
             'inserted_by' => Auth::user()->name,
             'edited_by' => Auth::user()->name
         ]);
+    }
+
+    public function regFundraiser(Request $request, $id)
+    {
+        
     }
 }
