@@ -99,34 +99,4 @@ class RelawanController extends Controller
             return redirect()->route('relawan.verification')->with('error', "Token tidak sesuai");
         }
     }
-
-    public function createProgram()
-    {
-        return view('relawan.addprogram');
-    }
-
-    public function storeProgram(Requset $request)
-    {
-        $request->validate([
-            'nama_program' => 'required',
-            'info' => 'required',
-            'target' => 'required',
-            'batas_akhir' => 'required',
-        ]);
-
-        DB::table('program')->insert([
-            'id_user' => Auth::id(),
-            'nama_program' => $request->nama_program,
-            'info' => $request->info,
-            'target' => $request->target,
-            'batas_akhir' => $request->batas_akhir,
-            'inserted_by' => Auth::user()->name,
-            'edited_by' => Auth::user()->name
-        ]);
-    }
-
-    public function regFundraiser(Request $request, $id)
-    {
-        
-    }
 }
