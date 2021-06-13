@@ -88,6 +88,12 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => ['required', Rules\Password::min(8)],
+        ]);
+        
         User::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
