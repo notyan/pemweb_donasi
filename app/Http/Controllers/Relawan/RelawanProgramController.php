@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Relawan;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class RelawanProgramController extends Controller
     {
         $list_program = DB::table('program')->where('id_user', Auth::id())->get();
 
-        return view('relawan.index');
+        return view('relawan.index', compact('list_program'));
     }
 
     /**
@@ -124,5 +125,37 @@ class RelawanProgramController extends Controller
         DB::table('program_fundraiser')->where('id_program', $id)->delete();
         DB::table('program_komplain')->where('id_program', $id)->delete();
         DB::table('program')->where('id', $id)->delete();
+    }
+
+    /**
+     * Show list of program for registering as fundraiser at program.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function regFundraiser()
+    {
+        $list_program = DB::table('program')->get();
+
+        return view('relawan.regfund', compact('list_program'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function fundraiser(Request $request, $id)
+    {
+        DB::table('program_funriser')->insert([
+            'id_program' => $id,
+            'id_user' => Auth::id(),
+            'inserted_at' => now(),
+            'inserted_by' => Auth::user()->name,
+            'edited_by' => Auth::user()->name
+        ]);
+
+        return redirect()->route('daftar-fundraiser');
     }
 }
