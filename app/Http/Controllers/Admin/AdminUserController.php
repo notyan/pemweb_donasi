@@ -93,7 +93,6 @@ class AdminUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'level' => $request->level,
-            'updated_at' => date("Y-m-d H:i:s"),
             'is_verified' => $request->is_verified,
         ]);
 

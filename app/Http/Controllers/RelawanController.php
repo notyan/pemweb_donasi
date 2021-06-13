@@ -94,7 +94,6 @@ class RelawanController extends Controller
         if($request->token == $data->token) {
             DB::table('relawan')->where('id_user', Auth::id())->update([
                 'is_verified' => 1,
-                'edited_at' => date("Y-m-d H:i:s"),
                 'edited_by' => Auth::user()->name,
             ]);
         } else {
@@ -122,9 +121,8 @@ class RelawanController extends Controller
             'info' => $request->info,
             'target' => $request->target,
             'batas_akhir' => $request->batas_akhir,
-            'inserted_at' => date("Y-m-d H:i:s"),
             'inserted_by' => Auth::user()->name,
-            'edited_by' => date("Y-m-d H:i:s")
+            'edited_by' => Auth::user()->name
         ]);
     }
 }
