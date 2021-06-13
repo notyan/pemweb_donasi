@@ -46,10 +46,10 @@ class RelawanController extends Controller
         $id_kec = DB::table('kelurahan')->where('id', $request->id_kelurahan)->value('id_kecamatan');
         $id_kab = DB::table('kecamatan')->where('id', $id_kec)->value('id_kabupaten');
         $id_provinsi = DB::table('kabupaten')->where('id', $id_kab)->value('id_provinsi');
-        $email = DB::table('users')->where('id', $request->id_user)->value('email');
+        $email = DB::table('users')->where('id', Auth::id())->value('email');
 
         DB::table('relawan')->insert([
-            'id_user' => $request->id_user,
+            'id_user' => Auth::id(),
             'nama_depan' => $request->nama_depan,
             'nama_belakang' => $request->nama_belakang,
             'alamat_ktp' => $request->alamat_ktp,
