@@ -101,8 +101,6 @@ class AdminUserController extends Controller
             'level' => $request->level,
             'is_verified' => $request->is_verified,
         ]);
-
-        return redirect()->route('superuser.index')->with('success', 'User berhasil diperbarui');
     }
 
     /**
@@ -114,7 +112,5 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-
-        return redirect()->route('superuser.index')->with('success', 'User berhasil dihapus');
     }
 }
