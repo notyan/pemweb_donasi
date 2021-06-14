@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Relawan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class RelawanController extends Controller
+class ProgramController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,28 +15,9 @@ class RelawanController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $list_berita = DB::table('program_berita')->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('program.index', compact('list_berita'));
     }
 
     /**
@@ -46,16 +28,18 @@ class RelawanController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table('program')->where('id', $id)->get();
+
+        return view('program.detail', compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Program $program)
     {
         //
     }
@@ -64,10 +48,10 @@ class RelawanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Program $program)
     {
         //
     }
@@ -75,10 +59,10 @@ class RelawanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Program $program)
     {
         //
     }

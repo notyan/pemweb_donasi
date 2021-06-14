@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProgramDonatur;
 
-class ProgramDonaturController extends Controller
+class Kecamatan extends Controller
 {
     /**
      * Display a listing of the resource.

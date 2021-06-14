@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->smallInteger('level')->default(1);
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
-            $table->boolean('is_admin')->nullable();
             $table->boolean('is_verified')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

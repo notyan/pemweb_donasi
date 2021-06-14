@@ -15,7 +15,7 @@ class CreateProgramTable extends Migration
     {
         Schema::create('program', function (Blueprint $table) {
             $table->id('id');
-            $table->foreignId('id_user')->constraint('user');
+            $table->foreignId('id_user')->constrained('users');
             $table->string('nama_program',100);
             $table->text('info');
             $table->string('target',100);
