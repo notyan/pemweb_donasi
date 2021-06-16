@@ -2,11 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Relawan;
 
-class Level2
+class IsRelawan
 {
     /**
      * Handle an incoming request.
@@ -17,8 +18,9 @@ class Level2
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user() && Auth::user()->level >= 2)
+        if (Relawan::where('id_user', Auth::id())->first()) {
             return $next($request);
-        return redirect()->back();
+        }
+        return redirect()->route('relawan.reg');
     }
 }
