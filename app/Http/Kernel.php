@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\Level2::class,
         'relawan' => \App\Http\Middleware\IsRelawan::class,
+        'verifiedrelawan' => \App\Http\Middleware\VerifiedRelawan::class,
     ];
 }
