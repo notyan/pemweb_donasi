@@ -18,7 +18,7 @@ class VerifiedRelawan
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Relawan::where('id_user', Auth::id())->get()->is_verified == 1)
+        if(Relawan::where('id_user', Auth::id())->get()->first()->is_verified == 1)
             return $next($request);
         return redirect()->route('relawan.verif');
     }
