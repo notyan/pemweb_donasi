@@ -27,10 +27,12 @@ Route::prefix('admin')->middleware(['admin'])->group(static function () {
     Route::resource('superuser', AdminUserController::class);
 });
 
-Route::get('/saran', function(){
-    return view('saran');
-});
 
+
+Route::get('/saran', [SaranController::class, 'saran']);
 Route::post('/createSaran', [SaranController::class, 'createSaran']);
+Route::get('/refreshcaptcha', [SaranController::class, 'refreshCaptcha']);
+
+Route::get('/mgrSaran', [SaranController::class, 'mgrSaran']);
 
 require __DIR__.'/auth.php';
