@@ -66,22 +66,23 @@ Route::prefix('relawan')->middleware(['auth', 'relawan'])->group(static function
         route::put('/{id}/edit', [RelawanProgramController::class, 'update']);
         Route::delete('/{id}', [RelawanProgramController::class, 'destroy'])->name('relawan.program.hapus');
     });
-    Route::prefix('berita')->group(function () {
+    Route::prefix('berita')->middleware(['verifiedrelawan'])->group(function () {
         Route::get('/{id}', [RelawanProgramBeritaController::class, 'edit'])->name('relawan.program.berita.edit');
         Route::put('/{id}', [RelawanProgramBeritaController::class, 'update']);
-        Route::delete('{id}', [RelawanProgramBeritaController::class, 'destroy']);
+        Route::delete('/{id}', [RelawanProgramBeritaController::class, 'destroy']);
     });
 });
 
 Route::prefix('program')->group(function () {
-    Route::get('/berita/{id}', [ProgramController::class, 'showBerita']);
+    Route::get('/berita', [ProgramController::class, 'indexBerita'])->name('berita');
+    Route::get('/berita/{id}', [ProgramController::class, 'showBerita'])->name('berita.baca');
+    Route::get('/donasi/{id}', [ProgramController::class, 'regDonatur'])->name('program.donasi');
+    Route::post('/donasi/{id}', [ProgramController::class, 'donate']);
 });
 
-Route::get('/relawan/daftar', [RelawanController::class, 'create']
-)->middleware(['auth'])->name('relawan.reg');
+Route::get('/relawan/daftar', [RelawanController::class, 'create'])->middleware(['auth'])->name('relawan.reg');
 
-Route::post('/relawan/daftar', [RelawanController::class, 'store']
-)->middleware(['auth']);
+Route::post('/relawan/daftar', [RelawanController::class, 'store'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
 
