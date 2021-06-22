@@ -57,6 +57,8 @@ class RelawanProgramController extends Controller
             'inserted_by' => Auth::user()->name,
             'edited_by' => Auth::user()->name
         ]);
+
+        return redirect()->route('relawan.program.index');
     }
 
     /**
@@ -67,7 +69,7 @@ class RelawanProgramController extends Controller
      */
     public function show($id)
     {
-        $data = DB::table('program')->where('id', $id)->get();
+        $data = DB::table('program')->where('id', $id)->get()->first();
 
         return view('relawan.showprogram', compact('data'));
     }
@@ -80,7 +82,10 @@ class RelawanProgramController extends Controller
      */
     public function edit($id)
     {
-        $data = DB::table('program')->where('id', $id)->get();
+        $data = DB::table('program')->where('id', $id)->get()->first();
+
+        if($data->id_user != Auth::id())
+            return redirect()->route('relawan.program.index');
 
         return view('relawan.editprogram', compact('data'));
     }
@@ -101,15 +106,15 @@ class RelawanProgramController extends Controller
             'batas_akhir' => 'required',
         ]);
 
-        DB::table('program')->update([
-            'id_user' => Auth::id(),
+        DB::table('program')->where('id', $id)->update([
             'nama_program' => $request->nama_program,
             'info' => $request->info,
             'target' => $request->target,
             'batas_akhir' => $request->batas_akhir,
-            'inserted_by' => Auth::user()->name,
             'edited_by' => Auth::user()->name
         ]);
+
+        return redirect()->route('relawan.program.detail', ['id' => $id]);
     }
 
     /**
@@ -122,9 +127,11 @@ class RelawanProgramController extends Controller
     {
         DB::table('program_donatur')->where('id_program', $id)->delete();
         DB::table('program_berita')->where('id_program', $id)->delete();
-        DB::table('program_fundraiser')->where('id_program', $id)->delete();
+        DB::table('program_funriser')->where('id_program', $id)->delete();
         DB::table('program_komplain')->where('id_program', $id)->delete();
         DB::table('program')->where('id', $id)->delete();
+
+        return redirect()->route('relawan.program.index');
     }
 
     /**
@@ -156,6 +163,6 @@ class RelawanProgramController extends Controller
             'edited_by' => Auth::user()->name
         ]);
 
-        return redirect()->route('daftar-fundraiser');
+        return redirect()->route('relawan.program.fundraiser');
     }
 }
