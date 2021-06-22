@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\SaranController;
-use App\Http\Controllers\RelawanProgramController;
+use App\Http\Controllers\Relawan\RelawanProgramController;
+use App\Http\Controllers\Relawan\RelawanProgramBeritaController;
+use App\Http\Controllers\Relawan\RelawanController;
 
 /*
 |--------------------------------------------------------------------------
