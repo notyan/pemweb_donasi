@@ -15,7 +15,7 @@ class CreateRefAgamaTable extends Migration
     {
         Schema::create('ref_agama', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users');
+            //$table->foreignId('id_user')->constrained('users');
             $table->string('nama', 50);
             $table->boolean('is_active');
             $table->timestamp('inserted_at');

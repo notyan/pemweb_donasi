@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\RefAgamaController;
+use App\Http\Controllers\Admin\RefProfesiController;
+use App\Http\Controllers\Admin\RefVendorSavingController;
+
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\Relawan\RelawanProgramController;
 use App\Http\Controllers\Relawan\RelawanProgramBeritaController;
@@ -29,20 +33,22 @@ Route::get('/dashboard', function () {
 
 Route::prefix('admin')->middleware(['admin'])->group(static function () {
     Route::resource('superuser', AdminUserController::class);
+    Route::get('/mgrWilayah', [AdminManajemenController::class, 'index']);
+    Route::get('/mgrAgama', [RefAgamaController::class, 'index']);
+        Route::post('/mgrAgama/add', [RefAgamaController::class, 'addAgama']);
+    Route::get('/mgrProfesi', [RefProfesiController::class, 'index']);
+        Route::post('/mgrProfesi/add', [RefProfesiController::class, 'addProfesi']);
+    Route::get('/mgrVendor', [RefVendorSavingController::class, 'index']);
+        Route::post('/mgrVendor/add', [RefVendorSavingController::class, 'addVendor']);
+    
+    Route::get('/mgrSaran', [SaranController::class, 'mgrSaran']);
+        Route::get('/mgrSaran/{id}', [SaranController::class, 'delSaran']);
 });
-
-
 
 Route::get('/saran', [SaranController::class, 'saran']);
 Route::post('/createSaran', [SaranController::class, 'createSaran']);
 Route::get('/refreshcaptcha', [SaranController::class, 'refreshCaptcha']);
 
-Route::prefix('admin')->middleware(['admin'])->group(static function () {
-    Route::get('/mgrSaran', [SaranController::class, 'mgrSaran']);
-});
-Route::prefix('admin')->middleware(['admin'])->group(static function () {
-    Route::get('/mgrSaran/{id}', [SaranController::class, 'delSaran']);
-});
 
 Route::prefix('relawan')->middleware(['auth', 'relawan'])->group(static function() {
     Route::get('/verifikasi', [RelawanController::class, 'verification'])->name('relawan.verif');
@@ -73,6 +79,7 @@ Route::prefix('program')->group(function () {
 
 Route::get('/relawan/daftar', [RelawanController::class, 'create']
 )->middleware(['auth'])->name('relawan.reg');
+
 Route::post('/relawan/daftar', [RelawanController::class, 'store']
 )->middleware(['auth']);
 
