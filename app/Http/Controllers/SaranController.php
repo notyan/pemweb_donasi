@@ -14,6 +14,13 @@ class SaranController extends Controller
            'saran' => $saran
        ]);
     }
+    public function delSaran($id){
+        $saran = Saran::find( $id);
+        $saran->delete();
+        echo ("Saran Sudah Terhapus.");
+        return redirect('/admin/mgrSaran');
+    }
+    
     public function saran(){
         return view('saran');
     }
