@@ -2,11 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
+use App\Models\Relawan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class Level2
+class VerifiedRelawan
 {
     /**
      * Handle an incoming request.
@@ -17,8 +18,8 @@ class Level2
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user() && Auth::user()->level >= 2)
+        if(Relawan::where('id_user', Auth::id())->get()->first()->is_verified == 1)
             return $next($request);
-        return redirect()->back();
+        return redirect()->route('relawan.verif');
     }
 }

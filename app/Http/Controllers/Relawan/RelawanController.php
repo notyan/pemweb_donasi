@@ -17,12 +17,16 @@ class RelawanController extends Controller
      */
     public function create()
     {
+        if (DB::table('relawan')->where('id_user', Auth::id())->get()->first()) {
+            return redirect()->route('dashboard');
+        }
+        
         $list_kelurahan = DB::table('kelurahan')->get();
         $list_profesi = DB::table('ref_profesi')->get();
-        $list_vendor_saving = DB::table('ref_vendor_saving')->get();
+        $list_jk = DB::table('ref_vendor_saving')->get();
         $list_agama = DB::table('ref_agama')->get();
 
-        return view('relawan.register', compact('list_kelurahan', 'list_profesi', 'list_vendor_saving', 'list_agama'));
+        return view('relawan.register', compact('list_kelurahan', 'list_profesi', 'list_agama', 'list_jk'));
     }
 
     /**
@@ -47,7 +51,6 @@ class RelawanController extends Controller
         $id_kec = DB::table('kelurahan')->where('id', $request->id_kelurahan)->value('id_kecamatan');
         $id_kab = DB::table('kecamatan')->where('id', $id_kec)->value('id_kabupaten');
         $id_provinsi = DB::table('kabupaten')->where('id', $id_kab)->value('id_provinsi');
-        $email = DB::table('users')->where('id', Auth::id())->value('email');
 
         DB::table('relawan')->insert([
             'id_user' => Auth::id(),
@@ -63,12 +66,14 @@ class RelawanController extends Controller
             'id_jk' => $request->id_jk,
             'id_agama' => $request->id_agama,
             'token' => rand(100000, 999999),
-            'email' => $email,
+            'email' => Auth::user()->email,
             'is_verified' => 0,
             'inserted_at' => now(),
             'inserted_by' => Auth::user()->name,
             'edited_by' => Auth::user()->name,
         ]);
+
+        return redirect()->route('relawan.verif');
     }
 
     /**
@@ -78,6 +83,9 @@ class RelawanController extends Controller
      */
     public function verification()
     {
+        if (DB::table('relawan')->where('id_user', Auth::id())->get()->first()->is_verified == 1) {
+            return redirect()->route('dashboard');
+        }
         return view('relawan.verification');
     }
 
@@ -89,7 +97,11 @@ class RelawanController extends Controller
      */
     public function verify(Request $request)
     {
-        $data = DB::table('relawan')->where('id_user', Auth::id())->get();
+        $request->validate([
+            'token' => 'required',
+        ]);
+        
+        $data = DB::table('relawan')->where('id_user', Auth::id())->get()->first();
 
         if($request->token == $data->token) {
             DB::table('relawan')->where('id_user', Auth::id())->update([
@@ -97,7 +109,9 @@ class RelawanController extends Controller
                 'edited_by' => Auth::user()->name,
             ]);
         } else {
-            return redirect()->route('relawan.verification')->with('error', "Token tidak sesuai");
+            return redirect()->route('relawan.verif')->with('error', "Token tidak sesuai");
         }
+
+        return redirect()->route('relawan.program.index');
     }
 }

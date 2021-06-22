@@ -17,7 +17,7 @@ class CreateProgramBeritaTable extends Migration
             $table->id('id');
             $table->foreignId('id_program')->constrained('program');
             $table->string('judul',100);
-            $table->string('konten_berita',100);
+            $table->longText('konten_berita');
             $table->boolean('is_active');
             $table->timestamp('inserted_at')->useCurrent();
             $table->string('inserted_by',100);
