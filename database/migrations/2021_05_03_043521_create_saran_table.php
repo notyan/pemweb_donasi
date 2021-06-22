@@ -19,7 +19,7 @@ class CreateSaranTable extends Migration
             $table->string('email');
             $table->string('no_hp',13);
             $table->string('subyek',100);
-            $table->string('konten',100);
+            $table->longText('konten');
             $table->timestamp('inserted_at')->useCurrent();
             $table->string('inserted_by',100);
             $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
