@@ -22,7 +22,7 @@ class CreateRekeningTable extends Migration
             $table->timestamp('inserted_at');
             $table->string('inserted_by',100);
             $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
-            $table->string('edited_by',100);
+            $table->string('edited_by',100)->nullable();
         });
     }
 
