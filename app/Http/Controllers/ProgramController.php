@@ -26,44 +26,23 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showProgram($id)
     {
-        $data = DB::table('program')->where('id', $id)->get();
+        $data = DB::table('program')->where('id', $id)->get()->first();
 
         return view('program.detail', compact('data'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function showBerita($id)
     {
-        //
-    }
+        $data = DB::table('program_berita')->where('id', $id)->get()->first();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Program  $program
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Program $program)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Program  $program
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Program $program)
-    {
-        //
+        return view('program.berita', compact('data'));
     }
 }
