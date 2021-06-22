@@ -9,6 +9,7 @@ class Saran extends Model
 {
     use HasFactory;
     protected $table = 'saran';
-   
+    const UPDATED_AT = 'edited_at';
+    const CREATED_AT = 'inserted_at';
 
 }

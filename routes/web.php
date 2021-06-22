@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\SaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,11 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->middleware(['admin'])->group(static function () {
     Route::resource('superuser', AdminUserController::class);
 });
+
+Route::get('/saran', function(){
+    return view('saran');
+});
+
+Route::post('/createSaran', [SaranController::class, 'createSaran']);
 
 require __DIR__.'/auth.php';

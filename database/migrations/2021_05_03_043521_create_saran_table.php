@@ -23,8 +23,8 @@ class CreateSaranTable extends Migration
             $table->timestamp('inserted_at')->useCurrent();
             $table->string('inserted_by',100);
             $table->timestamp('edited_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
-            $table->string('edited_by',100);
-            $table->string('verified_by',100);
+            $table->string('edited_by',100)->nullable();
+            $table->string('verified_by',100)->nullable();
             $table->timestamp('verified_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();;
         });
     }
