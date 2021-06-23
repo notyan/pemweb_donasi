@@ -15,8 +15,8 @@
         <form method="POST" action="{{ route('login') }}">
             <div class='flex items-center justify-end mt-4' >
                 <p class=" text-sm text-gray-600 hover:text-gray-900">Do Not Have Account? </p>
-                @if (Route::has('password.request'))
-                    <a class="underline text-md text-blue-900 hover:text-gray-800 ml-3" href="{{ route('password.request') }}">
+                @if (Route::has('register'))
+                    <a class="underline text-md text-blue-900 hover:text-gray-800 ml-3" href="{{ route('register') }}">
                         <b>{{ __(' Register') }}</b>
                     </a>
                 @endif
