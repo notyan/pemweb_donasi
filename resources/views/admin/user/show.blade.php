@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{route('superuser.index')}}" class="nav-link">
+                    <a href="{{ route('superuser.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Edit Data User </p>
                     </a>
@@ -128,9 +128,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Daftar Saran</h1>
+            <h1 class="m-0">Detail Data User</h1>
           </div><!-- /.col -->
-          
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Admin Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -142,35 +147,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <table class="table " style="width: auto;">
-                  <thead class='thead-dark'>
-                    <tr>
-                      <th style="width= 5px;">ID</th>
-                      <th class="col-lg-2">Judul</th>
-                      <th class="col-lg-2">Pengirim</th>
-                      <th class="col-lg-7">Konten</th>
-                      <th class="col-lg-1">Edit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($saran as $a)
-                      <tr>
-                        <th>{{ $a-> id }}</th>
-                        <td>{{ $a-> subyek }} <br> {{ $a-> inserted_at}}</td>
-                        <td> {{ $a-> inserted_by}} <br> {{ $a-> email }}  </td>
-                        <td>{{ $a-> konten}}</td>
-                        <td><a href="#">Edit</a> <br> <a href="#">Delete</a></td>
-                      </tr>
-                    @endforeach
-                  </tbody>
-                </table>
-                
-              </div>  
+              <table class="table ">
+                <tr>
+                    <td>Nama</td>
+                    <td>{{ $data->name }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ $data->email }}</td>
+                </tr>
+                <tr>
+                    <td>Level</td>
+                    <td>@if($data->level > 1) {{ "Admin" }} @else {{ "User" }} @endif</td>
+                </tr>
+                <tr>
+                    <td>Status Verikasi</td>
+                    <td>@if($data->is_verified == 1) {{ "Terverifikasi" }} @else {{ "Tidak Terverifikasi" }} @endif</td>
+                </tr>
+              </table>
             </div>
           </div>
           <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
+        <a href="{{ route('superuser.edit', ['superuser' => $data->id]) }}" class="btn btn-secondary">Edit</a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
