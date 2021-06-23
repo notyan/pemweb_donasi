@@ -15,7 +15,7 @@ class ProgramController extends Controller
      */
     public function indexBerita()
     {
-        $list_berita = DB::table('program_berita')->get();
+        $list_berita = DB::table('program_berita')->where('is_active', 1)->get();
 
         return view('program.index', compact('list_berita'));
     }
