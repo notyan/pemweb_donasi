@@ -35,6 +35,10 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->middleware(['admin'])->group(static function () {
     Route::resource('superuser', AdminUserController::class);
     Route::get('/mgrWilayah', [AdminManajemenController::class, 'index']);
+        Route::post('/mgrWilayah/addProv', [AdminManajemenController::class, 'addProvinsi']);
+        Route::post('/mgrWilayah/addKab', [AdminManajemenController::class, 'addKabupaten']);
+        Route::post('/mgrWilayah/addKec', [AdminManajemenController::class, 'addKecamatan']);
+        Route::post('/mgrWilayah/addKel', [AdminManajemenController::class, 'addKelurahan']);
     Route::get('/mgrAgama', [RefAgamaController::class, 'index']);
         Route::post('/mgrAgama/add', [RefAgamaController::class, 'addAgama']);
     Route::get('/mgrProfesi', [RefProfesiController::class, 'index']);

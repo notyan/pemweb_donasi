@@ -9,4 +9,6 @@ class Kelurahan extends Model
 {
     use HasFactory;
     protected $table = 'kelurahan';
+    const UPDATED_AT = 'edited_at';
+    const CREATED_AT = 'inserted_at';
 }

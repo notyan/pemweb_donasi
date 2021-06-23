@@ -9,4 +9,6 @@ class Provinsi extends Model
 {
     use HasFactory;
     protected $table = 'provinsi';
+    const UPDATED_AT = 'edited_at';
+    const CREATED_AT = 'inserted_at';
 }
