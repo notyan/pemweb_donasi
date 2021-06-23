@@ -3,12 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
+
 use App\Http\Controllers\Admin\AdminManajemenController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\RefAgamaController;
 use App\Http\Controllers\Admin\RefProfesiController;
 use App\Http\Controllers\Admin\RefVendorSavingController;
+use App\Http\Controllers\Admin\AdminKontenController;
 
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\Relawan\RelawanProgramController;
@@ -52,9 +54,16 @@ Route::prefix('admin')->middleware(['admin'])->group(static function () {
         Route::post('/mgrProfesi/add', [RefProfesiController::class, 'addProfesi']);
     Route::get('/mgrVendor', [RefVendorSavingController::class, 'index']);
         Route::post('/mgrVendor/add', [RefVendorSavingController::class, 'addVendor']);
-    
     Route::get('/mgrSaran', [SaranController::class, 'mgrSaran']);
         Route::get('/mgrSaran/{id}', [SaranController::class, 'delSaran']);
+    Route::prefix('konten')->group(function () {
+        Route::get('/', [AdminKontenController::class, 'index'])->name('admin.konten.index');
+        Route::get('/buat', [AdminKontenController::class, 'create'])->name('admin.konten.buat');
+        Route::post('/buat', [AdminKontenController::class, 'store']);
+        Route::get('/{id}/edit', [AdminKontenController::class, 'edit'])->name('admin.konten.edit');
+        Route::put('/{id}/edit', [AdminKontenController::class, 'update']);
+        Route::delete('/{id}', [AdminKontenController::class, 'delete'])->name('admin.konten.hapus');
+    });
 });
 
 Route::get('/saran', [SaranController::class, 'saran']);
