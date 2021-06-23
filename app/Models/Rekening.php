@@ -9,4 +9,6 @@ class Rekening extends Model
 {
     use HasFactory;
     protected $table = 'rekening';
+    const UPDATED_AT = 'edited_at';
+    const CREATED_AT = 'inserted_at';
 }

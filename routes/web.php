@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Admin\AdminManajemenController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\RefAgamaController;
 use App\Http\Controllers\Admin\RefProfesiController;
@@ -34,11 +35,14 @@ Route::get('/dashboard', function () {
 
 Route::prefix('admin')->middleware(['admin'])->group(static function () {
     Route::resource('superuser', AdminUserController::class);
+    Route::get('/', [AdminController::class, 'index']);
     Route::get('/mgrWilayah', [AdminManajemenController::class, 'index']);
         Route::post('/mgrWilayah/addProv', [AdminManajemenController::class, 'addProvinsi']);
         Route::post('/mgrWilayah/addKab', [AdminManajemenController::class, 'addKabupaten']);
         Route::post('/mgrWilayah/addKec', [AdminManajemenController::class, 'addKecamatan']);
         Route::post('/mgrWilayah/addKel', [AdminManajemenController::class, 'addKelurahan']);
+    Route::get('/mgrRekening', [AdminManajemenController::class, 'mgrRekening']);
+        Route::post('/mgrRekening/add', [AdminManajemenController::class, 'addRekening']);   
     Route::get('/mgrAgama', [RefAgamaController::class, 'index']);
         Route::post('/mgrAgama/add', [RefAgamaController::class, 'addAgama']);
     Route::get('/mgrProfesi', [RefProfesiController::class, 'index']);
