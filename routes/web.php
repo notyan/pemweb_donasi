@@ -26,7 +26,7 @@ use App\Http\Controllers\Relawan\RelawanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -60,6 +60,7 @@ Route::get('/refreshcaptcha', [SaranController::class, 'refreshCaptcha']);
 
 
 Route::prefix('relawan')->middleware(['auth', 'relawan'])->group(static function() {
+    Route::get('/', [RelawanController::class, 'dashboard']);
     Route::get('/verifikasi', [RelawanController::class, 'verification'])->name('relawan.verif');
     Route::post('/verifikasi', [RelawanController::class, 'verify']);
     Route::prefix('program')->middleware(['verifiedrelawan'])->group(static function () {
