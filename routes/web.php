@@ -58,7 +58,7 @@ Route::prefix('relawan')->middleware(['auth', 'relawan'])->group(static function
         Route::get('/', [RelawanProgramController::class, 'index'])->name('relawan.program.index');
         Route::get('/buat', [RelawanProgramController::class, 'create'])->name('relawan.program.buat');
         Route::post('/buat', [RelawanProgramController::class, 'store']);
-        Route::get('/fundraiser', [RelawanProgramController::class, 'regFundraiser'])->name('relawan.program.fundraiser');
+        Route::get('/all', [RelawanProgramController::class, 'regFundraiser'])->name('relawan.program.list');
         Route::post('/fundraiser/{id}', [RelawanProgramController::class, 'fundraiser'])->name('daftar-fundraiser');
         Route::get('/buat-berita/{id}', [RelawanProgramBeritaController::class, 'create'])->name('relawan.program.berita.buat');
         Route::post('/buat-berita/{id}', [RelawanProgramBeritaController::class, 'store']);
@@ -71,6 +71,12 @@ Route::prefix('relawan')->middleware(['auth', 'relawan'])->group(static function
         Route::get('/{id}', [RelawanProgramBeritaController::class, 'edit'])->name('relawan.program.berita.edit');
         Route::put('/{id}', [RelawanProgramBeritaController::class, 'update']);
         Route::delete('/{id}', [RelawanProgramBeritaController::class, 'destroy']);
+    });
+    Route::prefix('fundraiser')->group(function () {
+        Route::get('/', [RelawanProgramController::class, 'fundraiserProgram'])->name('relawan.fundraiser');
+        Route::get('/donatur/{id}', [RelawanProgramController::class, 'donatur'])->name('relawan.donatur');
+        Route::put('/donatur/{id}', [RelawanProgramController::class, 'confirmDonation']);
+        Route::get('/{id}', [RelawanProgramController::class, 'donaturProgram'])->name('relawan.program.donatur');
     });
 });
 

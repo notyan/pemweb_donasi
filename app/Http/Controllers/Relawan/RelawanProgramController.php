@@ -165,4 +165,49 @@ class RelawanProgramController extends Controller
 
         return redirect()->route('relawan.program.fundraiser');
     }
+
+    public function fundraiserProgram()
+    {
+        $list_program = DB::table('program_funriser')->where('id_user', Auth::id())->get();
+
+        return view('relawan.fundraiser', compact('list_program'));
+    }
+
+    public function donaturProgram($id)
+    {
+        $list_donatur = DB::table('program_donatur')->where('id_program', $id)->get();
+
+        $fundraiser = DB::table('program_funriser')->where('id_program', $id)->where('id_user', Auth::id())->get()->first();
+        if($fundraiser)
+            return view('relawan.list-donatur', compact('list_donatur'));
+        else
+            return redirect()->route('relawan.fundraiser');
+    }
+
+    public function donatur($id)
+    {
+        $data = DB::table('program_donatur')->where('id', $id)->get()->first();
+        $id_vendor = DB::table('rekening')->where('id', $data->id_rekening)->get()->first()->id_vendor;
+        $vendor = DB::table('ref_vendor_saving')->where('id', $id_vendor)->get()->first()->nama;
+
+        $fundraiser = DB::table('program_funriser')->where('id_program', $data->id_program)->where('id_user', Auth::id())->get()->first();
+
+        if($fundraiser)
+            return view('relawan.donatur', compact('data', 'vendor'));
+        else
+            return redirect()->route('relawan.fundraiser');
+    }
+
+    public function confirmDonation(Request $request, $id)
+    {
+        DB::table('program_donatur')->where('id', $id)->update([
+            'status_verifikasi' => $request->status_verifikasi,
+            'status_donasi' => $request->status_donasi,
+            'edited_by' => Auth::user()->name,
+            'verified_by' => Auth::user()->name
+        ]);
+
+        $id_program = DB::table('program_donatur')->where('id', $id)->get()->first()->id_program;
+        return redirect()->route('relawan.program.donatur', ['id' => $id_program]);
+    }
 }
