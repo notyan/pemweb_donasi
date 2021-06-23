@@ -86,6 +86,7 @@ class ProgramController extends Controller
             'inserted_by' => $request->nama_pengirim
         ]);
 
-        return redirect()->route('berita.baca', ['id' => $id]);
+        $id_berita = DB::table('program_berita')->where('id_program', $id)->get()->first()->id;
+        return redirect()->route('berita.baca', ['id' => $id_berita]);
     }
 }
