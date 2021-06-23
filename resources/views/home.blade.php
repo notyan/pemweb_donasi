@@ -95,7 +95,7 @@
         <div class="section-title">
         <br><br>
           <h2>Program Aktif</h2>
-          <p>Kelebihan kami apabila dibandingkan dengan konsultasi pertanian yang lain</p>
+          <p>Daftar program donasi kami yang masih aktif</p>
         </div>
         <div class="scrolling-wrapper">
             
@@ -118,37 +118,44 @@
       </div>
     </section><!-- End Team Section -->
 
-  <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq section-bg">
+  <!-- ======= Berita Section ======= -->
+    <section id="berita" class="faq section-bg overflow-auto" style="height: 600px;">
       <div class="container" >
 
         <div class="section-title">
           <h2>Berita</h2>
-          <p>Kelebihan kami apabila dibandingkan dengan konsultasi pertanian yang lain</p>
+          <p>Lihat berita menarik terkait program kami</p>
         </div>
 
         <div class="faq-list">
           <ul>
-              <li class='box'>
-                Terpercaya, layanan kami telah dipercaya oleh berbagai petani di Indonesia sejak 1995.
-              </li>
-            
-            <li class='box'>
-             Profesional, layanan diberikan oleh tim kami yang profesional dan bersertifikat. 
-            </li>
-
-            <li class='box'>
-              Jangkauan Luas, kami siap datang ke tempat anda, melayani hinga sebagian besar daerah di Jawa, Bali, dan Sumatera. 
-            </li>
-
-            <li class='box'>
-               Sesuai kebutuhan anda, kami memberikan berbagai jenis layanan yang dapat anda pilih sesuai kebutuhan.
-            </li>
+            @foreach($programBerita as $b)
+                <li class="box"><a href="{{ route('berita.baca', ['id' => $b->id]) }}">{{ $b->judul }}</a></li>
+            @endforeach
           </ul>
         </div>
 
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </section><!-- End Berita Section -->
+
+    <section id="blog" clas="faq section-bg overflow-auto" style="height: 600px">
+        <div class="container" >
+
+            <div class="section-title">
+                <h2>Blog</h2>
+                <p>Lihat blog menarik dari kami</p>
+            </div>
+
+            <div class="faq-list">
+                <ul>
+                    @foreach($kontenBlog as $c)
+                        <li class="box"><a href="{{ route('blog.baca', ['id' => $c->id]) }}">{{ $c->judul }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+
+        </div>
+    </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
