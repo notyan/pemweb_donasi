@@ -78,37 +78,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./mgrAgama" class="nav-link">
+                    <a href="../mgrAgama" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Edit Data Agama </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./mgrRekening" class="nav-link">
+                    <a href="../mgrRekening" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Edit Data Rekening</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./mgrVendor" class="nav-link">
+                    <a href="../mgrVendor" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Edit Data Vendor </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./mgrWilayah" class="nav-link">
+                    <a href="../mgrWilayah" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Edit Data Wilayah </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./mgrProfesi" class="nav-link">
+                    <a href="../mgrProfesi" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Edit Data Profesi </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./mgrSaran" class="nav-link">
+                    <a href="../mgrSaran" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Lihat Saran </p>
                     </a>
