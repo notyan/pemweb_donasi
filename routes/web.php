@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Admin\AdminManajemenController;
 use App\Http\Controllers\Admin\AdminController;
@@ -25,13 +26,11 @@ use App\Http\Controllers\Relawan\RelawanController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Route::get('/dashboard', function () {
-    return view('admin');
-})->middleware(['admin'])->name('admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

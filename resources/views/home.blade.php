@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>KangTani | Home</title>
+  <title>KIBATISA | HOME</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -43,31 +43,28 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">KangTani</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">KibaTisa</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar navbar-fixed-top">
         <ul>
-          <li><a class="nav-link  active" href="./index.html">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="./tips.html">Tips Budidaya</a></li>
-          <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="./konsul.html">Layanan Konsultasi</a></li>
-              <li><a href="./pelatihan.html">Layanan Pelatihan</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="./blog.html">Blog</a></li>
-           <li class="dropdown"><a href="#"><span>Tentang</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="./about.html">Tentang Kami</a></li>
-              <li><a href="./visi.html">Visi dan Misi</a></li>
-              <li><a href="./tim.html">Tim Kami</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="./kontak.html">Kontak</a></li>
-          <li><a class="nav-link scrollto" href="./testimoni.html">Testimoni</a></li>
+          <li><a class="nav-link  active" href="#">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="./tips.html">Blog</a></li>
+          <li><a class="nav-link scrollto" href="./blog.html">Saran</a></li>
+          <li><a class="nav-link scrollto" href="./blog.html">About</a></li>
         </ul>
+            @if (Route::has('login'))
+                <div class="hidden fixed ">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="" ><b>Dashboard</b></a>
+                    @else
+                        <a href="{{ route('login') }}" class="" ><b>Sign in</b></a>
+                        
+                        
+                    @endauth
+                </div>
+            @endif
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
@@ -80,15 +77,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" >
-          <h1>KangTani, Solusi permasalahan di pertanian Anda!</h1>
+          <h1>Fundraising for the people and causes you care about</h1>
           <div class="d-flex justify-content-center justify-content-lg-start">
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
           <img src="assets/img/logo.png" class="img-fluid animated" alt="">
-          <a href="https://www.freepik.com/vectors/farm" s>
-            <p style="font-size: 10px; text-align: center; color: white;">Farm vector created by freepik - www.freepik.com</p>
-          </a>
         </div>
       </div>
     </div>
@@ -104,32 +98,20 @@
           <p>Kelebihan kami apabila dibandingkan dengan konsultasi pertanian yang lain</p>
         </div>
         <div class="scrolling-wrapper">
+            
             <div class="row ">
-                
-              <div class="col-lg-3  mt-4 ">
-                <div class="member d-flex " >
-                  <div class="member-info">
-                    <h4>Terpercaya, </h4>
+                @foreach($program as $a)
+                  <div class="col-lg-3">
+                    <div class="member" >
+                      <div class="member-info">
+                          <h4>{{ $a-> nama_program}}</h4>
+                          <h5>{{ $a-> target}}</h5>
+                          <p>{{ $a-> info}}</p>
+                          
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="col-lg-3 mt-4 ">
-                <div class="member d-flex " >
-                  <div class="member-info">
-                    <h4>Profesional,  </h4>
-                    <h4>Profesional,  </h4>
-                    <h4>Profesional,  </h4>
-                    <h4>Profesional,  </h4>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 mt-4">
-                <div class="member d-flex " >
-                  <div class="member-info">
-                    <h4>Jangkauan Luas, </h4>
-                  </div>
-                </div>
-              </div>
+                  @endforeach
             </div>
         </div>
         
@@ -141,7 +123,7 @@
       <div class="container" >
 
         <div class="section-title">
-          <h2>Active Kami</h2>
+          <h2>Berita</h2>
           <p>Kelebihan kami apabila dibandingkan dengan konsultasi pertanian yang lain</p>
         </div>
 

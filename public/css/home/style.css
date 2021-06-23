@@ -18,6 +18,7 @@
 
 
 
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -997,30 +998,24 @@ section {
 # Team
 --------------------------------------------------------------*/
 .team .member {
+  white-space: normal;
   position: relative;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 16px;
   border-radius: 5px;
+  height: 256px;
   background: #fff;
   transition: 0.5s;
+  margin-bottom: 16px
 }
 
-.team .member .pic {
-  overflow: hidden;
-  width: 180px;
-  border-radius: 50%;
-}
-
-.team .member .pic img {
-  transition: ease-in-out 0.3s;
-}
 
 .team .member:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 .team .member .member-info {
-  padding-left: 30px;
+  padding-left: 16px;
 }
 
 .team .member h4 {
@@ -1031,6 +1026,8 @@ section {
 }
 
 .team .member span {
+  
+  word-wrap: break-word;
   display: block;
   font-size: 15px;
   padding-bottom: 10px;
@@ -1050,15 +1047,10 @@ section {
 }
 
 .team .member p {
+  
+  word-wrap: break-word;
   margin: 10px 0 0 0;
   font-size: 14px;
-}
-
-.team .member .social {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 .team .member .social a {
@@ -1076,14 +1068,6 @@ section {
   color: #289672;
   font-size: 16px;
   margin: 0 2px;
-}
-
-.team .member .social a:hover {
-  background: #29bb89;
-}
-
-.team .member .social a:hover i {
-  color: #fff;
 }
 
 .team .member .social a + a {
@@ -1729,4 +1713,9 @@ section {
   transition: 0.3s;
 }.box:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.bttn {
+  font-size: 100px;
+  font-weight: bold;
 }
