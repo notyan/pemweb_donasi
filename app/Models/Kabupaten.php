@@ -9,4 +9,6 @@ class Kabupaten extends Model
 {
     use HasFactory;
     protected $table = 'kabupaten';
+    const UPDATED_AT = 'edited_at';
+    const CREATED_AT = 'inserted_at';
 }
