@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Relawan;
 
 use App\Http\Controllers\Controller;
+use App\Mail\KirimTokenRelawan;
+use App\Models\Relawan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class RelawanController extends Controller
 {
@@ -46,7 +49,7 @@ class RelawanController extends Controller
             'nama_depan' => 'required',
             'nama_belakang' => 'required',
             'alamat_ktp' => 'required',
-            'no_wa' => 'required',
+            'no_wa' => 'required|unique:relawan',
             'id_kelurahan' => 'required',
             'id_profesi' => 'required',
             'id_jk' => 'required',
@@ -77,6 +80,9 @@ class RelawanController extends Controller
             'inserted_by' => Auth::user()->name,
             'edited_by' => Auth::user()->name,
         ]);
+
+        $relawan = Relawan::where('id_user', Auth::id())->get()->first();
+        Mail::to($request->user())->send(new KirimTokenRelawan($relawan));
 
         return redirect()->route('relawan.verif');
     }
