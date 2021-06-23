@@ -26,7 +26,7 @@ class RelawanController extends Controller
     public function create()
     {
         if (DB::table('relawan')->where('id_user', Auth::id())->get()->first()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('relawan.dashboard');
         }
         
         $list_kelurahan = DB::table('kelurahan')->get();
@@ -95,7 +95,7 @@ class RelawanController extends Controller
     public function verification()
     {
         if (DB::table('relawan')->where('id_user', Auth::id())->get()->first()->is_verified == 1) {
-            return redirect()->route('dashboard');
+            return redirect()->route('relawan.dashboard');
         }
         return view('relawan.verification');
     }

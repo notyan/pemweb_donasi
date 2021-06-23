@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Relawan;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -32,6 +33,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if(Auth::user()->level > 1)
+            return redirect()->route('admin.dashboard');
+        else if(Relawan::where('id_user', Auth::id())->first())
+            return redirect()->route('relawan.dashboard');
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
