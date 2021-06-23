@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\RefProfesiController;
 use App\Http\Controllers\Admin\RefVendorSavingController;
 use App\Http\Controllers\Admin\AdminKontenController;
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\Relawan\RelawanProgramController;
 use App\Http\Controllers\Relawan\RelawanProgramBeritaController;
@@ -106,6 +107,11 @@ Route::prefix('program')->group(function () {
     Route::get('/berita/{id}', [ProgramController::class, 'showBerita'])->name('berita.baca');
     Route::get('/donasi/{id}', [ProgramController::class, 'regDonatur'])->name('program.donasi');
     Route::post('/donasi/{id}', [ProgramController::class, 'donate']);
+});
+
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'index'])->name('blog');
+    Route::get('/{id}', [BlogController::class, 'show'])->name('blog.baca');
 });
 
 Route::get('/relawan/daftar', [RelawanController::class, 'create'])->middleware(['auth'])->name('relawan.reg');
