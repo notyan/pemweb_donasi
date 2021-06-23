@@ -45,6 +45,10 @@ class AdminKontenController extends Controller
     {
         $data = DB::table('konten_blog')->where('id', $id)->get()->first();
 
+        if ($data->id_user != Auth::id()) {
+            return redirect()->route('admin.konten.index');
+        }
+
         return view('admin.konten.edit', compact('data'));
     }
 
