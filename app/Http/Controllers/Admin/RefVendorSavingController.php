@@ -11,7 +11,10 @@ use App\Models\RefVendorSaving;
 class RefVendorSavingController extends Controller
 {
     public function index(){
-       return view('/admin/mgrVendor');
+        $vendor = RefVendorSaving::all();
+        return view('/admin/mgrVendor', [
+           'vendor' => $vendor
+       ]);
     }
     public function addVendor(Request $request){
         $vendor = new RefVendorSaving;

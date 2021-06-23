@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Admin\AdminManajemenController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\RefAgamaController;
 use App\Http\Controllers\Admin\RefProfesiController;
@@ -25,7 +26,7 @@ use App\Http\Controllers\Relawan\RelawanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -34,11 +35,14 @@ Route::get('/dashboard', function () {
 
 Route::prefix('admin')->middleware(['admin'])->group(static function () {
     Route::resource('superuser', AdminUserController::class);
+    Route::get('/', [AdminController::class, 'index']);
     Route::get('/mgrWilayah', [AdminManajemenController::class, 'index']);
         Route::post('/mgrWilayah/addProv', [AdminManajemenController::class, 'addProvinsi']);
         Route::post('/mgrWilayah/addKab', [AdminManajemenController::class, 'addKabupaten']);
         Route::post('/mgrWilayah/addKec', [AdminManajemenController::class, 'addKecamatan']);
         Route::post('/mgrWilayah/addKel', [AdminManajemenController::class, 'addKelurahan']);
+    Route::get('/mgrRekening', [AdminManajemenController::class, 'mgrRekening']);
+        Route::post('/mgrRekening/add', [AdminManajemenController::class, 'addRekening']);   
     Route::get('/mgrAgama', [RefAgamaController::class, 'index']);
         Route::post('/mgrAgama/add', [RefAgamaController::class, 'addAgama']);
     Route::get('/mgrProfesi', [RefProfesiController::class, 'index']);
@@ -56,6 +60,7 @@ Route::get('/refreshcaptcha', [SaranController::class, 'refreshCaptcha']);
 
 
 Route::prefix('relawan')->middleware(['auth', 'relawan'])->group(static function() {
+    Route::get('/', [RelawanController::class, 'dashboard']);
     Route::get('/verifikasi', [RelawanController::class, 'verification'])->name('relawan.verif');
     Route::post('/verifikasi', [RelawanController::class, 'verify']);
     Route::prefix('program')->middleware(['verifiedrelawan'])->group(static function () {

@@ -11,7 +11,7 @@ class SaranController extends Controller
 
     public function mgrSaran(){
        $saran = Saran::all();
-       return view('mgrSaran', [
+       return view('/admin/mgrSaran', [
            'saran' => $saran
        ]);
     }

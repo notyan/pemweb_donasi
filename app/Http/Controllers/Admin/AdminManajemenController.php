@@ -9,6 +9,8 @@ use  App\Models\Provinsi;
 use  App\Models\Kabupaten;
 use  App\Models\Kecamatan;
 use  App\Models\Kelurahan;
+use  App\Models\Rekening;
+use  App\Models\RefVendorSaving;
 
 class AdminManajemenController extends Controller
 {
@@ -58,4 +60,25 @@ class AdminManajemenController extends Controller
         $kelurahan->save();
         return redirect('/admin/mgrWilayah');
     }
+    
+    public function mgrRekening(Request $request){
+        $vendor = RefVendorSaving::all();
+        $rekening = Rekening::all();
+        return view('/admin/mgrRekening',compact('vendor'), [
+           'rekening' => $rekening
+       ]);
+    }
+    public function addRekening(Request $request){
+        $rekening = new Rekening;
+        
+        $rekening->id_vendor = $request->idVendor;
+        $rekening->nama_rekening = $request->namaRek;
+        $rekening->nomor_rekening = $request->noRek;
+        $rekening->is_active = $request->isActive;
+        $rekening->inserted_by = Auth::user()->name;
+        $rekening->edited_by = Auth::user()->name;
+        $rekening->save();
+        return redirect('/admin/mgrRekening');
+    }
+
 }

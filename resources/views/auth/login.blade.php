@@ -5,7 +5,7 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-
+        
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -13,6 +13,15 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('login') }}">
+            <div class='flex items-center justify-end mt-4' >
+                <p class=" text-sm text-gray-600 hover:text-gray-900">Do Not Have Account? </p>
+                @if (Route::has('password.request'))
+                    <a class="underline text-md text-blue-900 hover:text-gray-800 ml-3" href="{{ route('password.request') }}">
+                        <b>{{ __(' Register') }}</b>
+                    </a>
+                @endif
+            </div>
+            
             @csrf
 
             <!-- Email Address -->
@@ -46,7 +55,6 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
