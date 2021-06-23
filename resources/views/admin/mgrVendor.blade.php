@@ -150,10 +150,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-body">
                 <h5 class="card-title">Tambah Profesi</h5>
                   </br>
+                  
                     <form action='/admin/mgrVendor/add' method="post">
-                        <input type="text" name="nama" placeholder="Nama Vendor Bank/E-Wallet"/>
-                        {{ csrf_field() }}
-                        <input type="submit" value="Submit" />
+                      <div class='row row-cols-lg-4'>
+                        <div class="col input-group mb-3">
+                          <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Vendor</span>
+                            <input class="form-control col-lg-10" style="border-radius: 0px 4px 4px 0px;" type="text" name="nama" placeholder="Nama Vendor Bank/E-Wallet"/>
+                            {{ csrf_field() }}
+                        </div>
+                          <div class="col input-group mb-3">
+                            <button class="btn btn-dark " type="submit" >Submit</button>
+                          </div>
+                      </div>
+                      
                     </form>
                   </div>
                 </div>

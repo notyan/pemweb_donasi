@@ -10,6 +10,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Admin | Kibatisa </title>
 
   <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ URL::asset('plugins/fontawesome-free/css/all.min.css') }}">
@@ -128,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Admin Dashboard</h1>
+            <h1 class="m-0">Manajemen Agama</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -148,16 +150,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                  <br/>
+                <h5><b>Tambah Daftar Agama</b></h5>
                   <form action='/admin/mgrAgama/add' method="post">
-                    <input type="text" name="nama" placeholder="Nama Agama"/>
-                    <select name='isActive' id='isActive'>
-                        <option value="1">Aktif</option>
-                        <option value="0">Tidak Aktif</option>
-                    </select>
+                    <div class='row row-cols-lg-5'>
+                      <div class="col input-group  mb-3 ">
+                        <span class="input-group-text"style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Nama</span>
+                        <input type='text' class="form-control col-lg-10" style="border-radius: 0px 4px 4px 0px;" type="text" name="nama" placeholder="Nama Agama"/>
+                      </div>
+                      <div class="col input-group  mb-3">
+                        <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Status</span>
+                        <select class="form-control col-lg-5" style="border-radius: 0px 4px 4px 0px;" name='isActive' id='isActive'>
+                            <option value="1">Aktif</option>
+                            <option value="0">Tidak Aktif</option>
+                        </select>
+                      </div>
+                    </div>
+                    <button class="btn btn-dark " type="submit" >Submit</button>
                     {{ csrf_field() }}
-                    <input type="submit" value="Submit" />
+                    
                 </form>
               </div>
             </div>

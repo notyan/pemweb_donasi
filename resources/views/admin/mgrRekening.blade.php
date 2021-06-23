@@ -151,19 +151,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <h5 class="card-title">Card title</h5>
                   <br/>
                   <form action='/admin/mgrRekening/add' method="post">
-                      <input type="text" name="namaRek" placeholder="Atas Nama Rekening / E-Wallet"/>
-                      <input type="text" name="noRek" placeholder="No Rekening/No E-Wallet"/>
-                      <select name="idVendor" id="idVendor"> 
-                          @foreach($vendor as $prov)
-                              <option value="{{ $prov->id }}">{{ $prov->nama }}</option>
-                          @endforeach
-                      </select>
-                      <select name='isActive' id='isActive'>
-                          <option value="1">Aktif</option>
-                          <option value="0">Tidak Aktif</option>
-                      </select>
-                      {{ csrf_field() }}
-                      <input type="submit" value="Submit" />
+                    <div class='row row-cols-lg-8'>
+                      <div class="col input-group mb-3">
+                        <span class="input-group-text col-lg-2"style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Atas Nama</span>
+                        <input class="form-control col-lg-8" type="text" name="namaRek" placeholder="Atas Nama Rekening / E-Wallet"/>
+                      </div>
+                      <div class="col input-group mb-3">
+                        <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Vendor</span>
+                        <select class="form-control col-lg-3" style="border-radius: 0px 4px 4px 0px;" name='isActive' id='isActive'>
+                            @foreach($vendor as $prov)
+                                <option value="{{ $prov->id }}">{{ $prov->nama }}</option>
+                            @endforeach
+                        </select>
+                      </div>
+                    </div>
+                    <div class='row row-cols-lg-8'>
+                      <div class="col input-group mb-3">
+                        <span class="input-group-text col-lg-2"style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Nomor Rek</span>
+                        <input class="form-control col-lg-8" type="text" name="noRek" placeholder="No Rekening/No E-Wallet"/>
+                      </div>
+                      <div class="col input-group mb-3">
+                        <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Status   </span>
+                            <select class="form-control col-lg-3" style="border-radius: 0px 4px 4px 0px;" name='isActive' id='isActive'>
+                                <option value="1">Aktif</option>
+                                <option value="0">Tidak Aktif</option>
+                            </select>
+                      </div>
+                    </div>
+                    {{ csrf_field() }}
+                    <button class="btn btn-dark " type="submit" >Submit</button>
                   </form>
                 </div>
               </div>
