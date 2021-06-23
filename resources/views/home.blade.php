@@ -50,8 +50,8 @@
       <nav id="navbar" class="navbar navbar-fixed-top">
         <ul>
           <li><a class="nav-link  active" href="#">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="./tips.html">Blog</a></li>
-          <li><a class="nav-link scrollto" href="./blog.html">Saran</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('blog') }}">Blog</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('berita') }}">Berita</a></li>
           <li><a class="nav-link scrollto" href="./blog.html">About</a></li>
         </ul>
             @if (Route::has('login'))
