@@ -63,7 +63,7 @@ Route::get('/refreshcaptcha', [SaranController::class, 'refreshCaptcha']);
 
 
 Route::prefix('relawan')->middleware(['auth', 'relawan'])->group(static function() {
-    Route::get('/', [RelawanController::class, 'dashboard']);
+    Route::get('/', [RelawanController::class, 'dashboard'])->name('relawan.dashboard');
     Route::get('/verifikasi', [RelawanController::class, 'verification'])->name('relawan.verif');
     Route::post('/verifikasi', [RelawanController::class, 'verify']);
     Route::prefix('program')->middleware(['verifiedrelawan'])->group(static function () {
