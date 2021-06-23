@@ -1,181 +1,190 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kibatisa</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
+  <title>KangTani | Home</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <!-- CSS here -->
-    <link rel="stylesheet" href="{{ URL::asset('css/home/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/home/style.css') }}">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>  -->
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ URL::asset('css/home/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ URL::asset('css/home/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::asset('css/home/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ URL::asset('css/home/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::asset('css/home/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::asset('css/home/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ URL::asset('css/home/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="{{ URL::asset('css/home/style.css') }}">
+
+  <!-- =======================================================
+  * Template Name: Arsha - v4.3.0
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
 
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
 
-    <!-- header-start -->
-    <header>
-        <div class="header-area fixed-top">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-3">
-                            <div class="logo">
-                                <h1><a href="index.html">Kibatisa</a></h1> 
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-9">
-                            <div class="main-menu">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="index.html">home</a></li>
-                                        <li><a href="About.html">About</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                                <li><a href="Cause.html">Cause</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                                <div class="Appointment">
-                                    
-                                     @if (Route::has('login'))
-                                        <div class="book_btn d-none d-lg-block">
-                                            @auth
-                                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                                            @else
-                                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                                            @endauth
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header-end -->
+      <h1 class="logo me-auto"><a href="index.html">KangTani</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-    <!-- slider_area_start -->
-    <div class="slider_area">
-        <div class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div class="slider_text ">
-                            <span>Get Started Today.</span>
-                            <h3> Help the children
-                                When They Need</h3>
-                            <p>With so much to consume and such little time, coming up <br>
-                                with relevant title ideas is essential</p>
-                            <a href="About.html" class="boxed-btn3">Learn More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <nav id="navbar" class="navbar navbar-fixed-top">
+        <ul>
+          <li><a class="nav-link  active" href="./index.html">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="./tips.html">Tips Budidaya</a></li>
+          <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="./konsul.html">Layanan Konsultasi</a></li>
+              <li><a href="./pelatihan.html">Layanan Pelatihan</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="./blog.html">Blog</a></li>
+           <li class="dropdown"><a href="#"><span>Tentang</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="./about.html">Tentang Kami</a></li>
+              <li><a href="./visi.html">Visi dan Misi</a></li>
+              <li><a href="./tim.html">Tim Kami</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="./kontak.html">Kontak</a></li>
+          <li><a class="nav-link scrollto" href="./testimoni.html">Testimoni</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
-    <!-- slider_area_end -->
+  </header><!-- End Header -->
 
-    <!-- news__area_start  -->
-    <div class="news__area section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb-55">
-                        <h3><span>News & Updates</span></h3>
-                    </div>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" >
+          <h1>KangTani, Solusi permasalahan di pertanian Anda!</h1>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="assets/img/logo.png" class="img-fluid animated" alt="">
+          <a href="https://www.freepik.com/vectors/farm" s>
+            <p style="font-size: 10px; text-align: center; color: white;">Farm vector created by freepik - www.freepik.com</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+     <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+        <br><br>
+          <h2>Program Aktif</h2>
+          <p>Kelebihan kami apabila dibandingkan dengan konsultasi pertanian yang lain</p>
+        </div>
+        <div class="scrolling-wrapper">
+            <div class="row ">
+                
+              <div class="col-lg-3  mt-4 ">
+                <div class="member d-flex " >
+                  <div class="member-info">
+                    <h4>Terpercaya, </h4>
+                  </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="news_active owl-carousel">
-                        <div class="single__blog d-flex align-items-center">
-                            <div class="thum">
-                                <img src="img/news/1.png" alt="">
-                            </div>
-                            <div class="newsinfo">
-                                <span>July 18, 2019</span>
-                                <a href="single-blog.html">
-                                    <h3>Pure Water Is More 
-                                        Essential</h3>
-                                </a>
-                                <p>The passage experienced a 
-                                    surge in popularity during the 
-                                    1960s when used it on their  
-                                    sheets, and again.</p>
-                                <a class="read_more" href="single-blog.html">Read More</a>
-                            </div>
-                        </div>
-                        <div class="single__blog d-flex align-items-center">
-                            <div class="thum">
-                                <img src="img/news/2.png" alt="">
-                            </div>
-                            <div class="newsinfo">
-                                <span>July 18, 2019</span>
-                                <a href="single-blog.html">
-                                    <h3>Pure Water Is More 
-                                        Essential</h3>
-                                </a>
-                                <p>The passage experienced a 
-                                    surge in popularity during the 
-                                    1960s when used it on their  
-                                    sheets, and again.</p>
-                                <a class="read_more" href="single-blog.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="col-lg-3 mt-4 ">
+                <div class="member d-flex " >
+                  <div class="member-info">
+                    <h4>Profesional,  </h4>
+                    <h4>Profesional,  </h4>
+                    <h4>Profesional,  </h4>
+                    <h4>Profesional,  </h4>
+                  </div>
                 </div>
+              </div>
+              <div class="col-lg-3 mt-4">
+                <div class="member d-flex " >
+                  <div class="member-info">
+                    <h4>Jangkauan Luas, </h4>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
-    </div>
-    <!-- news__area_end  -->
-
-    <!-- footer_start  -->
-    <footer class="footer">
         
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="row">
-                    <div class="bordered_1px "></div>
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                        </p>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </section><!-- End Team Section -->
+
+  <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" >
+
+        <div class="section-title">
+          <h2>Active Kami</h2>
+          <p>Kelebihan kami apabila dibandingkan dengan konsultasi pertanian yang lain</p>
         </div>
-    </footer>
-    <!-- footer_end  -->
 
-    <!-- link that opens popup -->
+        <div class="faq-list">
+          <ul>
+              <li class='box'>
+                Terpercaya, layanan kami telah dipercaya oleh berbagai petani di Indonesia sejak 1995.
+              </li>
+            
+            <li class='box'>
+             Profesional, layanan diberikan oleh tim kami yang profesional dan bersertifikat. 
+            </li>
 
-    <!-- JS here -->
+            <li class='box'>
+              Jangkauan Luas, kami siap datang ke tempat anda, melayani hinga sebagian besar daerah di Jawa, Bali, dan Sumatera. 
+            </li>
+
+            <li class='box'>
+               Sesuai kebutuhan anda, kami memberikan berbagai jenis layanan yang dapat anda pilih sesuai kebutuhan.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
 
 </body>
 
