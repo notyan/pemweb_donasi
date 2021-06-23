@@ -87,7 +87,7 @@ class RelawanProgramBeritaController extends Controller
             'is_active' => 'required'
         ]);
 
-        DB::table('program_berita')->update([
+        DB::table('program_berita')->where('id', $id)->update([
             'judul' => $request->judul,
             'konten_berita' => $request->konten_berita,
             'is_active' => $request->is_active,
