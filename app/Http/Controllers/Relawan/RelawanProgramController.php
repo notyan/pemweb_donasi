@@ -163,7 +163,7 @@ class RelawanProgramController extends Controller
             'edited_by' => Auth::user()->name
         ]);
 
-        return redirect()->route('relawan.program.fundraiser');
+        return redirect()->route('relawan.program.list');
     }
 
     public function fundraiserProgram()

@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class RelawanController extends Controller
 {
+    public function dashboard()
+    {
+        return view('relawan.dashboard');
+    }
+
     /**
      * Show the form for register as relawan.
      *
