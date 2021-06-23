@@ -145,14 +145,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-            <p>Tambah Provinsi</p>
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Tambah Provinsi</h5></br>
                 <form action='/admin/mgrWilayah/addProv' method="post">
                     <input type="text" name="namaProv" placeholder="Nama Provinsi"/>
                     {{ csrf_field() }}
                     <input type="submit" value="Submit" />
                 </form>
-                <br/>
-                <p>Tambah Kabupaten</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">    
+                <h5 class="card-title">Tambah Kabupaten</h5></br>
                 <form action='/admin/mgrWilayah/addKab' method="post">
                     <input type="text" name="namaKab" placeholder="Nama Kabupaten"/>
                     <select name="idProv" id="idProv"> 
@@ -163,9 +171,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     {{ csrf_field() }}
                     <input type="submit" value="Submit" />
                 </form>
-                <br/>
-                
-                <p>Tambah Kecamatan</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">   
+                <h5 class="card-title">Tambah Kecamatan</h5></br>
                 <form action='/admin/mgrWilayah/addKec' method="post">
                     <input type="text" name="namaKec" placeholder="Nama Kecamatan"/>
                     <select name="idKab" id="idKab"> 
@@ -176,8 +188,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     {{ csrf_field() }}
                     <input type="submit" value="Submit" />
                 </form>
-                <br/>
-                <p>Tambah Kelurahan</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">  
+                <h5 class="card-title">Tambah Kelurahan</h5></br>
                 <form action='/admin/mgrWilayah/addKel' method="post">
                     <input type="text" name="namaKel" placeholder="Nama Kelurahan"/>
                     <select name="idKec" id="idKec"> 
@@ -188,6 +205,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     {{ csrf_field() }}
                     <input type="submit" value="Submit" />
                 </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+              <div class="card">
+                @yield('Tabel Isian')
+              </div>
+            </div>
           <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->

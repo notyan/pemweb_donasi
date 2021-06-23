@@ -145,21 +145,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-            <form action='/admin/mgrRekening/add' method="post">
-                <input type="text" name="namaRek" placeholder="Atas Nama Rekening / E-Wallet"/>
-                <input type="text" name="noRek" placeholder="No Rekening/No E-Wallet"/>
-                <select name="idVendor" id="idVendor"> 
-                    @foreach($vendor as $prov)
-                        <option value="{{ $prov->id }}">{{ $prov->nama }}</option>
-                    @endforeach
-                </select>
-                <select name='isActive' id='isActive'>
-                    <option value="1">Aktif</option>
-                    <option value="0">Tidak Aktif</option>
-                </select>
-                {{ csrf_field() }}
-                <input type="submit" value="Submit" />
-            </form>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                  <br/>
+                  <form action='/admin/mgrRekening/add' method="post">
+                      <input type="text" name="namaRek" placeholder="Atas Nama Rekening / E-Wallet"/>
+                      <input type="text" name="noRek" placeholder="No Rekening/No E-Wallet"/>
+                      <select name="idVendor" id="idVendor"> 
+                          @foreach($vendor as $prov)
+                              <option value="{{ $prov->id }}">{{ $prov->nama }}</option>
+                          @endforeach
+                      </select>
+                      <select name='isActive' id='isActive'>
+                          <option value="1">Aktif</option>
+                          <option value="0">Tidak Aktif</option>
+                      </select>
+                      {{ csrf_field() }}
+                      <input type="submit" value="Submit" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          <div class="col-lg-12">
+            <div class="card">
+              <table class="table ">
+                <thead class='thead-dark'>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Atas nama</th>
+                    <th scope="col">No Rekening/E-Wallet</th>
+                    <th scope="col">Id Rekening/E-Wallet</th>
+                    <th scope="col">Aktif/tidak</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($rekening as $r)
+                    <tr>
+                      <th>{{ $r-> id }}</li>
+                      <th>{{ $r-> nama_rekening }}</li>
+                      <td>{{ $r-> nomor_rekening}}</td>
+                      <td>{{ $r-> id_vendor}}</td>
+                      <td>{{ $r-> is_active}}</td>
+                      <td><a href="#">Edit</a></td>
+                      <td><a href="#">Delete</a></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
           <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->

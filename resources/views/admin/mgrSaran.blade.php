@@ -128,14 +128,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Admin Dashboard</h1>
+            <h1 class="m-0">Daftar Saran</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Admin Dashboard</li>
-            </ol>
-          </div><!-- /.col -->
+          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -145,17 +140,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-            <ul>
-                @foreach($saran as $s)
-                    <li>{{ $s->subyek }}</li>
-                    {{$s -> inserted_by  }} 
-                    <br/>{{$s -> konten}}
-                    <br/>{{$s -> inserted_at}}
-                    <a href="#">Edit</a> 
-                    <a href="#">Validasi</a> 
-                    <a href="/admin/mgrSaran/{{ $s->id }}">Hapus</a>
-                @endforeach
-            </ul>
+          <div class="col-lg-12">
+            <div class="card">
+              <table class="table " style="width: auto;">
+                  <thead class='thead-dark'>
+                    <tr>
+                      <th style="width= 5px;">ID</th>
+                      <th class="col-lg-2">Judul</th>
+                      <th class="col-lg-2">Pengirim</th>
+                      <th class="col-lg-7">Konten</th>
+                      <th class="col-lg-1">Edit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($saran as $a)
+                      <tr>
+                        <th>{{ $a-> id }}</th>
+                        <td>{{ $a-> subyek }} <br> {{ $a-> inserted_at}}</td>
+                        <td> {{ $a-> inserted_by}} <br> {{ $a-> email }}  </td>
+                        <td>{{ $a-> konten}}</td>
+                        <td><a href="#">Edit</a> <br> <a href="#">Delete</a></td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+                
+              </div>  
+            </div>
+          </div>
           <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->

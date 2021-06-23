@@ -11,7 +11,10 @@ use App\Models\RefAgama;
 class RefAgamaController extends Controller
 {
     public function index(){
-       return view('/admin/mgrAgama');
+        $agama = RefAgama::all();
+       return view('/admin/mgrAgama', [
+           'agama' => $agama
+       ]);
     }
     public function addAgama(Request $request){
         $agama = new RefAgama;

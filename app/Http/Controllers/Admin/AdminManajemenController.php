@@ -63,7 +63,10 @@ class AdminManajemenController extends Controller
     
     public function mgrRekening(Request $request){
         $vendor = RefVendorSaving::all();
-        return view('/admin/mgrRekening',compact('vendor'));
+        $rekening = Rekening::all();
+        return view('/admin/mgrRekening',compact('vendor'), [
+           'rekening' => $rekening
+       ]);
     }
     public function addRekening(Request $request){
         $rekening = new Rekening;

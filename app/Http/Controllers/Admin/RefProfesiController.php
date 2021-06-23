@@ -11,7 +11,10 @@ use App\Models\RefProfesi;
 class RefProfesiController extends Controller
 {
     public function index(){
-       return view('/admin/mgrProfesi');
+       $profesi = RefProfesi::all();
+       return view('/admin/mgrProfesi', [
+           'profesi' => $profesi
+       ]);
     }
     public function addProfesi(Request $request){
         $profesi = new RefProfesi;

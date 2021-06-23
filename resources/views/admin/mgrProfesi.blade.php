@@ -133,7 +133,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Admin Dashboard</li>
+              <li class="breadcrumb-item active">Manajemen Profesi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -145,15 +145,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-            <form action='/admin/mgrProfesi/add' method="post">
-                <input type="text" name="nama" placeholder="Nama Profesi"/>
-                <select name='isActive' id='isActive'>
-                    <option value="1">Aktif</option>
-                    <option value="0">Tidak Aktif</option>
-                </select>
-                {{ csrf_field() }}
-                <input type="submit" value="Submit" />
-            </form>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Tambah Profesi</h5></br>
+                  <form action='/admin/mgrProfesi/add' method="post">
+                      <input type="text" name="nama" placeholder="Nama Profesi"/>
+                      <select name='isActive' id='isActive'>
+                          <option value="1">Aktif</option>
+                          <option value="0">Tidak Aktif</option>
+                      </select>
+                      {{ csrf_field() }}
+                      <input type="submit" value="Submit" />
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="card">
+                <table class="table ">
+                  <thead class='thead-dark'>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Profesi</th>
+                      <th scope="col">Aktif/tidak</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($profesi as $a)
+                      <tr>
+                        <th>{{ $a-> id }}</li>
+                        <td>{{ $a-> nama}}</td>
+                        <td>{{ $a-> is_active}}</td>
+                        <td><a href="#">Edit</a></td>
+                        <td><a href="#">Delete</a></td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
           <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->

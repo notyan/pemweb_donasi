@@ -145,11 +145,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-            <form action='/admin/mgrVendor/add' method="post">
-                <input type="text" name="nama" placeholder="Nama Vendor Bank/E-Wallet"/>
-                {{ csrf_field() }}
-                <input type="submit" value="Submit" />
-            </form>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Tambah Profesi</h5>
+                  </br>
+                    <form action='/admin/mgrVendor/add' method="post">
+                        <input type="text" name="nama" placeholder="Nama Vendor Bank/E-Wallet"/>
+                        {{ csrf_field() }}
+                        <input type="submit" value="Submit" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            <div class="col-lg-12">
+              <div class="card">
+                <table class="table ">
+                  <thead class='thead-dark'>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nama Rekening/E-Wallet</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($vendor as $a)
+                      <tr>
+                        <th>{{ $a-> id }}</li>
+                        <td>{{ $a-> nama}}</td>
+                        <td><a href="#">Edit</a></td>
+                        <td><a href="#">Delete</a></td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
           <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
