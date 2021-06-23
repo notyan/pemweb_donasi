@@ -148,15 +148,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Tambah Profesi</h5></br>
+                <h5><b>Tambah Profesi</b></h5>
                   <form action='/admin/mgrProfesi/add' method="post">
-                      <input type="text" name="nama" placeholder="Nama Profesi"/>
-                      <select name='isActive' id='isActive'>
-                          <option value="1">Aktif</option>
-                          <option value="0">Tidak Aktif</option>
-                      </select>
+                    <div class='row row-cols-lg-5'>
+                      <div class="col input-group  mb-3 ">
+                        <span class="input-group-text"style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Nama</span>
+                        <input type='text' class="form-control col-lg-10" style="border-radius: 0px 4px 4px 0px;" type="text" name="nama" placeholder="Nama Profesi"/>
+                      </div>
+                      <div class="col input-group  mb-3">
+                        <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Status</span>
+                         <select class="form-control col-lg-5" style="border-radius: 0px 4px 4px 0px;" name='isActive' id='isActive'>
+                              <option value="1">Aktif</option>
+                              <option value="0">Tidak Aktif</option>
+                          </select>
+                        </div>
+                      </div>
                       {{ csrf_field() }}
-                      <input type="submit" value="Submit" />
+                      <button class="btn btn-dark " type="submit" >Submit</button>
                   </form>
                 </div>
               </div>
