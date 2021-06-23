@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-
-date_default_timezone_set('Asia/Jakarta');
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class AdminUserController extends Controller
 {
@@ -43,14 +43,19 @@ class AdminUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => ['required', 'confirmed', Rules\Password::min(8)],
+            'password' => ['required', Rules\Password::min(8)],
+            'level' => 'required'
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'level' => $request->level,
+            'is_verified' => 1
         ]);
+
+        return redirect()->route('superuser.index');
     }
 
     /**
@@ -90,9 +95,18 @@ class AdminUserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => ['required', Rules\Password::min(8)],
+            'level' => 'required',
+            'is_verified' => 'required'
         ]);
+
+        if (User::where([
+                ['email', $request->email],
+                ['id', '<>', $id]
+            ])->first()) {
+            return redirect()->route('superuser.show', ['superuser' => $id]);
+        }
         
         User::where('id', $id)->update([
             'name' => $request->name,
@@ -101,6 +115,8 @@ class AdminUserController extends Controller
             'level' => $request->level,
             'is_verified' => $request->is_verified,
         ]);
+
+        return redirect()->route('superuser.show', ['superuser' => $id]);
     }
 
     /**
@@ -111,6 +127,6 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        return redirect()->route('superuser.show', ['superuser' => $id]);
     }
 }
