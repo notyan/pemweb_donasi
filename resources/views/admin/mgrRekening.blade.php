@@ -251,7 +251,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <td>{{ $r-> is_active}}</td>
                       <td><a href="#">Edit</a></td>
                       <td>
-                          <form action='./mgrAgama/{{ $a->id }}' method="post">
+                          <form action='./mgrAgama/{{ $r->id }}' method="post">
                             @csrf
                             @method('delete') 
                             <button >Delete</button>

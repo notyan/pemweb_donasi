@@ -155,7 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <thead class='thead-dark'>
                             <tr>
                                 <th>Nama Program</th>
-                                <th>Daftar Fundraiser</th>
+                                <th>Daftar Donatur</th>
                             </tr>
                         </thead>
                         <tbody>
