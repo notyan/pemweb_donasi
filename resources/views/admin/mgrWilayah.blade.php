@@ -185,10 +185,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-body">
                 <h5>Tambah Provinsi</h5></br>
                 <form action='/admin/mgrWilayah/addProv' method="post">
+                  {{ csrf_field() }}
                   <div class='row row-cols-lg-8'>
                     <div class="col input-group mb-3">
-                        <input class="form-control col-lg-8"type="text" name="namaProv" placeholder="Nama Provinsi"/>
-                        {{ csrf_field() }}
+                      <span class="input-group-text " style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Provinsi</span>
+                        <input class="form-control col-lg-12"type="text" name="namaProv" placeholder="Nama Provinsi"/>
                     </div>
                   </div>
                   <button class="btn btn-dark " type="submit" >Submit</button>
@@ -201,21 +202,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-body">    
                 <h5>Tambah Kabupaten</h5></br>
                 <form action='/admin/mgrWilayah/addKab' method="post">
+                  {{ csrf_field() }}
                   <div class='row row-cols-lg-8'>
                     <div class="col input-group mb-3">
-                      <input  type="text" class="form-control col-lg-8" name="namaKab" placeholder="Nama Kabupaten">
-                    </div>
-                    <div class="col input-group mb-3">
-                      <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Provinsi</span>
-                      <select name="idProv" id="idProv"> 
-                          @foreach($provinsi as $prov)
-                              <option value="{{ $prov->id }}">{{ $prov->nama }}</option>
-                          @endforeach
-                      </select>
-                      {{ csrf_field() }}
+                      <span class="input-group-text " style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Kabupaten</span>
+                      <input  class="form-control col-lg-10" type="text" name="namaKab" placeholder="Nama Kabupaten">
                     </div>
                   </div>
-                  <button class="btn btn-dark " type="submit" >Submit</button>
+                  <div class='row row-cols-lg-8'>
+                    <div class="col col-lg-10 input-group mb-3">
+                        <span class="input-group-text col-lg-2" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Provinsi</span>
+                        <select class="form-control col-lg-10" name="idProv" id="idProv"> 
+                            @foreach($provinsi as $prov)
+                                <option value="{{ $prov->id }}">{{ $prov->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col ">
+                      <button class="btn btn-dark " type="submit" >Submit</button>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -223,16 +229,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">   
-                <h5 class="card-title">Tambah Kecamatan</h5></br>
+                <h5 >Tambah Kecamatan</h5></br>
                 <form action='/admin/mgrWilayah/addKec' method="post">
-                    <input type="text" name="namaKec" placeholder="Nama Kecamatan"/>
-                    <select name="idKab" id="idKab"> 
-                        @foreach($kabupaten as $kab)
-                            <option value="{{ $kab->id }}">{{ $kab->nama }}</option>
-                        @endforeach
-                    </select>
-                    {{ csrf_field() }}
-                    <button class="btn btn-dark " type="submit" >Submit</button>
+                  {{ csrf_field() }}
+                  <div class='row row-cols-lg-8'>
+                    <div class="col input-group mb-3">
+                      <span class="input-group-text " style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Kecamatan</span>
+                      <input  class="form-control col-lg-12" type="text" name="namaKec" placeholder="Nama Kecamatan"/>
+                    </div>
+                  </div>
+                  <div class='row row-cols-lg-8'>
+                    <div class="col col-lg-10  input-group mb-3">
+                      <span class="input-group-text"  style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Kabupaten</span>
+                        <select class="form-control col-lg-12" name="idKab" id="idKab"> 
+                            @foreach($kabupaten as $kab)
+                                <option value="{{ $kab->id }}">{{ $kab->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col ">
+                      <button class="btn btn-dark " type="submit" >Submit</button>
+                    </div>
+                  </div>
+                    
                 </form>
               </div>
             </div>
@@ -240,16 +259,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">  
-                <h5 class="card-title">Tambah Kelurahan</h5></br>
+                <h5 >Tambah Kelurahan</h5></br>
                 <form action='/admin/mgrWilayah/addKel' method="post">
-                    <input type="text" name="namaKel" placeholder="Nama Kelurahan"/>
-                    <select name="idKec" id="idKec"> 
+                  {{ csrf_field() }}
+                  <div class='row row-cols-lg-8'>
+                    <div class="col input-group mb-3">
+                      <span class="input-group-text " style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Kelurahan</span>
+                      <input  class="form-control col-lg-12" type="text" name="namaKel" placeholder="Nama Kelurahan"/>
+                    </div>
+                  </div>
+                 <div class='row row-cols-lg-8'>
+                   <div class="col col-lg-10  input-group mb-3">
+                      <span class="input-group-text"  style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Kecamatan</span>
+                        <select class="form-control" name="idKec" id="idKec"> 
                         @foreach($kecamatan as $kec)
                             <option value="{{ $kec->id }}">{{ $kec->nama }}</option>
                         @endforeach
                     </select>
-                    {{ csrf_field() }}
-                    <button class="btn btn-dark " type="submit" >Submit</button>
+                   </div>
+                   <div class="col input-group mb-3">
+                      <button class="btn btn-dark " type="submit" >Submit</button>
+                    </div>
+                  </div>
+                    
                 </form>
               </div>
             </div>

@@ -4,19 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $data_berita->judul }}</title>
+    <title>Detail Program {{ $data->nama_program }}</title>
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-    {!! $data_berita->konten_berita !!}
-    <div id="info">
-        <p>
-            <h3>Info tentang program</h3>
-            Nama Program : {{ $data_program->nama_program }}
-            Pemilik : {{ DB::table('users')->where('id', $data_program->id_user)->get()->first()->name }} <br />
-            Target : {{ $data_program->target }} <br />
-            Batas Akhir : {{ $data_program->batas_akhir }} <br />
-            <a href="{{ route('program.donasi', ['id' => $data_program->id]) }}">Donasi</a>
-        </p>
-    </div>
+    <a href="{{ route('relawan.program.index') }}">Daftar Programmu</a>
+    <table>
+        <tr>
+            <td>Nama Program</td>
+            <td>{{ $data->nama_program }}</td>
+        </tr>
+        <tr>
+            <td>Info</td>
+            <td>{{ $data->info }}</td>
+        </tr>
+        <tr>
+            <td>Target</td>
+            <td>{{ $data->target }}</td>
+        </tr>
+        <tr>
+            <td>Batas Akhir</td>
+            <td>{{ $data->batas_akhir }}</td>
+        </tr>
+    </table>
 </body>
 </html>
