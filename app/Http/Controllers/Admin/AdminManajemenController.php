@@ -101,5 +101,11 @@ class AdminManajemenController extends Controller
         $rekening->save();
         return redirect('/admin/mgrRekening');
     }
+    public function delVendor($id){
+        $rekening = Rekening::find( $id);
+        $rekening->delete();
+        echo ("Rekening Sudah Terhapus.");
+        return redirect('/admin/mgrRekening');
+    }
 
 }

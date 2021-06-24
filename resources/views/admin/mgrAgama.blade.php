@@ -234,7 +234,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <td>{{ $a-> nama}}</td>
                       <td>{{ $a-> is_active}}</td>
                       <td><a href="#">Edit</a></td>
-                      <td><a href="#">Delete</a></td>
+                      <td>
+                          <form action='./mgrAgama/{{ $a->id }}' method="post">
+                            @csrf
+                            @method('delete') 
+                            <button >Delete</button>
+                          </form>
+                      </td>
                     </tr>
                   @endforeach
                 </tbody>

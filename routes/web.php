@@ -49,15 +49,19 @@ Route::prefix('admin')->middleware(['admin'])->group(static function () {
         Route::post('/mgrWilayah/addKel', [AdminManajemenController::class, 'addKelurahan']);
     Route::get('/mgrRekening', [AdminManajemenController::class, 'mgrRekening']);
         Route::post('/mgrRekening/add', [AdminManajemenController::class, 'addRekening']);   
+            Route::delete('/mgrRekening/{id}', [AdminManajemenController::class, 'delRekening']);
     Route::get('/mgrAgama', [RefAgamaController::class, 'index']);
         Route::post('/mgrAgama/add', [RefAgamaController::class, 'addAgama']);
-        Route::get('/mgrAgama/{id}', [RefAgamaController::class, 'delAgama']);
+            Route::delete('/mgrAgama/{id}', [RefAgamaController::class, 'delAgama']);
     Route::get('/mgrProfesi', [RefProfesiController::class, 'index']);
         Route::post('/mgrProfesi/add', [RefProfesiController::class, 'addProfesi']);
+            Route::delete('/mgrProfesi/{id}', [RefProfesiController::class, 'delProfesi']);
     Route::get('/mgrVendor', [RefVendorSavingController::class, 'index']);
         Route::post('/mgrVendor/add', [RefVendorSavingController::class, 'addVendor']);
+            Route::delete('/mgrVendor/{id}', [RefVendorSavingController::class, 'delVendor']);
     Route::get('/mgrSaran', [SaranController::class, 'mgrSaran']);
-        Route::get('/mgrSaran/{id}', [SaranController::class, 'delSaran']);
+        Route::delete('/mgrSaran/{id}', [SaranController::class, 'delSaran']);
+        
     Route::prefix('konten')->group(function () {
         Route::get('/', [AdminKontenController::class, 'index'])->name('admin.konten.index');
         Route::get('/buat', [AdminKontenController::class, 'create'])->name('admin.konten.buat');

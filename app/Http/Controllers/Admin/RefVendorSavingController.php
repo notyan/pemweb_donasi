@@ -16,6 +16,12 @@ class RefVendorSavingController extends Controller
            'vendor' => $vendor
        ]);
     }
+    public function delVendor($id){
+        $vendor = RefVendorSaving::find( $id);
+        $vendor->delete();
+        echo ("Vendor Sudah Terhapus.");
+        return redirect('/admin/mgrVendor');
+    }
     public function addVendor(Request $request){
         $vendor = new RefVendorSaving;
         $vendor->nama = $request->nama;

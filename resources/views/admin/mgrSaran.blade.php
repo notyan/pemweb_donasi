@@ -183,8 +183,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <th style="width= 5px;">ID</th>
                       <th class="col-lg-2">Judul</th>
                       <th class="col-lg-2">Pengirim</th>
-                      <th class="col-lg-7">Konten</th>
-                      <th class="col-lg-1">Edit</th>
+                      <th class="col-lg-8">Konten</th>
+                      <th width="100px">Edit</th>
+                      <th width="100px">Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -194,7 +195,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>{{ $a-> subyek }} <br> {{ $a-> inserted_at}}</td>
                         <td> {{ $a-> inserted_by}} <br> {{ $a-> email }}  </td>
                         <td>{{ $a-> konten}}</td>
-                        <td><a href="#">Edit</a> <br> <a href="#">Delete</a></td>
+                        
+                        <td><a href="#"> Edit</a> </td>
+                        <td>
+                          <form action='./mgrSaran/{{ $a->id }}' method="post">
+                            @csrf
+                            @method('delete') 
+                            <button >Delete</button>
+                          </form>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>

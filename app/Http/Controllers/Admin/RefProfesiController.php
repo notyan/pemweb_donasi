@@ -16,6 +16,12 @@ class RefProfesiController extends Controller
            'profesi' => $profesi
        ]);
     }
+    public function delProfesi($id){
+        $profesi = RefProfesi::find( $id);
+        $profesi->delete();
+        echo ("Profesi Sudah Terhapus.");
+        return redirect('/admin/mgrProfesi');
+    }
     public function addProfesi(Request $request){
         $profesi = new RefProfesi;
         $profesi->nama = $request->nama;
