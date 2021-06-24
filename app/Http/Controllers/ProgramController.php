@@ -62,6 +62,7 @@ class ProgramController extends Controller
                 'id_vendor' => $request->vendor,
                 'nama_rekening' => $request->nama_atas_nama,
                 'nomor_rekening' => $request->no_rekening_pengirim,
+                'edited_by' => $request->nama_atas_nama,
                 'is_active' => 1,
                 'inserted_at' => now(),
                 'inserted_by' => $request->nama_atas_nama,
@@ -81,6 +82,7 @@ class ProgramController extends Controller
             'pesan' => $request->pesan,
             'status_verifikasi' => 0,
             'status_donasi' => 0,
+            'edited_by' => $request->nama_pengirim,
             'inserted_at' => now(),
             'inserted_by' => $request->nama_pengirim
         ]);

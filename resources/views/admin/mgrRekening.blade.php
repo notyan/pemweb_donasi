@@ -201,9 +201,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </div>
                       <div class="col input-group mb-3">
                         <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Vendor</span>
-                        <select class="form-control col-lg-3" style="border-radius: 0px 4px 4px 0px;" name='isActive' id='isActive'>
-                            @foreach($vendor as $prov)
-                                <option value="{{ $prov->id }}">{{ $prov->nama }}</option>
+                        <select class="form-control col-lg-3" style="border-radius: 0px 4px 4px 0px;" name='idVendor' id='idVendor'>
+                            @foreach($vendor as $v)
+                                <option value="{{ $v->id }}">{{ $v->nama }}</option>
                             @endforeach
                         </select>
                       </div>
