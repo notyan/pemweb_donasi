@@ -154,20 +154,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @csrf
                         <table>
                             <tr>
-                                <td>Judul</td>
-                                <td><input type="text" name="judul" id="judul"></td>
+                                <td width="100px">Judul</td>
+                                <td><input style="width: 500px" class="form-control" type="text" name="judul" id="judul"></td>
                             </tr>
                             <tr>
                                 <td>Konten</td>
-                                <td><textarea name="konten_berita" id="konten_berita"></textarea></td>
+                                <td><textarea style="width: 500px" class="form-control" name="konten_berita" id="konten_berita"></textarea></td>
                             </tr>
                         </table>
-                        <button class="btn btn-dark " type="submit" >Hapus</button>
+                        <button class="btn btn-dark " type="submit" >Submit</button>
                     </form>
                 </div>
             </div>
-
-            
           </div>
           <!-- /.col-md-6 -->
           <!-- /.col-md-6 -->

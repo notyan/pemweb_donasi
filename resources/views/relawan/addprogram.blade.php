@@ -154,23 +154,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         @csrf
                         <table>
                             <tr>
-                                <td>Nama Program</td>
-                                <td><input type="text" name="nama_program" id="nama_program"></td>
+                                <td width="150px">Nama Program</td>
+                                <td><input style="width: 300px" class="form-control" type="text" name="nama_program" id="nama_program"></td>
                             </tr>
                             <tr>
                                 <td>Info</td>
-                                <td><textarea name="info" id="info"></textarea></td>
+                                <td><textarea style="width: 300px" class="form-control"  name="info" id="info"></textarea></td>
                             </tr>
                             <tr>
                                 <td>Target</td>
-                                <td><input type="number" name="target" id="target"></td>
+                                <td><input style="width: 300px" class="form-control"  type="number" name="target" id="target"></td>
                             </tr>
                             <tr>
                                 <td>Batas Akhir</td>
-                                <td><input type="date" name="batas_akhir" id="batas_akhir"></td>
+                                <td><input style="width: 300px" class="form-control"  type="date" name="batas_akhir" id="batas_akhir"></td>
                             </tr>
                             <tr>
-                                <td><button class="btn btn-dark " type="submit" >Hapus</button></td>
+                                <td><button class="btn btn-dark " type="submit" >Submit</button></td>
                             </tr>
                         </table>
                         </form>

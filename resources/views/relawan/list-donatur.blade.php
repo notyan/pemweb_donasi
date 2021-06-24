@@ -150,17 +150,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <table>
+                    <table class='table'>
+                      <thead class='thead-dark'>
                         <tr>
-                            <td>Nama Pengirim</td>
-                            <td>Konfirmasi</td>
+                            <th scope="col">Nama Pengirim</th>
+                            <th scope="col">Konfirmasi</th>
                         </tr>
-                        @foreach($list_donatur as $donatur)
-                        <tr>
-                            <td>{{ $donatur->nama_pengirim }}</td>
-                            <td><a href="{{ route('relawan.donatur', ['id' => $donatur->id]) }}">detail</a></td>
-                        </tr>
-                        @endforeach
+                      </thead>
+                      @foreach($list_donatur as $donatur)
+                      <tr>
+                          <td>{{ $donatur->nama_pengirim }}</td>
+                          <td><a href="{{ route('relawan.donatur', ['id' => $donatur->id]) }}">detail</a></td>
+                      </tr>
+                      @endforeach
                     </table>
                 </div>
             </div>

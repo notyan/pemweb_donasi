@@ -105,10 +105,10 @@
                         </div>
             
                         <div class="form-group">
-                            <label for="no_hp">Nomor Hp</label>
-                            <div class="input-group mb-3" id="no_hp">
+                            <label for="noHp">Nomor Hp</label>
+                            <div class="input-group mb-3" id="noHp">
                                 <span class="input-group-text">+62</span>
-                                <input type="number" class="form-control" name="no_hp" value="{{ old('no_hp') }}">
+                                <input type="number" class="form-control" name="noHp" value="{{ old('no_hp') }}">
                             </div>
                         </div>
             
@@ -126,6 +126,7 @@
                         <div class="form-group col input-group  mb-3 ">
                             <div class="captcha">
                                 <span class='capcai'>{!! captcha_img() !!}</span>
+                                <button type="button" class="btn btn-success" id="refresh"> &#x21bb;</button>
                                 <!--ERROR <button type="button" class="btn btn-success" id="refresh"> &#x21bb;</button> -->
                             </div>
                             <input id="captcha "  type="text" class="form-control col-lg-10" placeholder="Enter Captcha" name="captcha" value="{{ old('captcha') }}">
@@ -164,9 +165,9 @@
         $('#refresh').click(function(){
           $.ajax({
              type:'GET',
-             url:'refreshcaptcha',
+             url:'/refreshcaptcha',
              success:function(data){
-                $(".captcha .capcai").html(data.captcha);
+                $(".captcha span").html(data.captcha);
              }
           });
         });

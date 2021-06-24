@@ -155,30 +155,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         @method('PUT')
                         <table>
                             <tr>
-                                <td>Judul</td>
-                                <td><input type="text" name="judul" id="judul" value="{{ $data->judul }}"></td>
+                                <td width:'120px'>Judul</td>
+                                <td><input style="width: 500px" class="form-control" type="text" name="judul" id="judul" value="{{ $data->judul }}"></td>
                             </tr>
                             <tr>
                                 <td>Konten</td>
-                                <td><textarea name="konten_berita" id="konten_berita">{{ $data->konten_berita }}</textarea></td>
+                                <td><textarea style="width: 500px" class="form-control" name="konten_berita" id="konten_berita">{{ $data->konten_berita }}</textarea></td>
                             </tr>
                             <tr>
                                 <td>Berita masih aktif?</td>
                                 <td>
-                                    <select name="is_active" id="is_active">
+                                    <select tyle="width: 500px" class="form-control"  name="is_active" id="is_active">
                                         <option value="1">Ya</option>
                                         <option value="0">Tidak</option>
                                     </select>
                                 </td>
                             </tr>
                         </table>
-                        <button class="btn btn-dark " type="submit" >Perbarui</button>
-                    </form>
-                    <form action="{{ route('relawan.program.berita.edit', ['id' => $data->id]) }}" method="post">
-                    @csrf
-                    @method('delete')
-                        <button class="btn btn-danger " type="submit" >Hapus</button>
-                    </form>
+                    <div class="row">
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <button class="btn btn-dark" type="submit" >Perbarui</button>
+                        </form>
+                        
+                        <form action="{{ route('relawan.program.berita.edit', ['id' => $data->id]) }}" method="post">
+                          @csrf
+                          @method('delete')
+                          <button class="btn btn-danger " type="submit" >Hapus</button>
+                        </form>
+                      </div>
+                    </div>
+                    
                 </div>
             </div>
 

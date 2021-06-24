@@ -51,6 +51,7 @@ Route::prefix('admin')->middleware(['admin'])->group(static function () {
         Route::post('/mgrRekening/add', [AdminManajemenController::class, 'addRekening']);   
     Route::get('/mgrAgama', [RefAgamaController::class, 'index']);
         Route::post('/mgrAgama/add', [RefAgamaController::class, 'addAgama']);
+        Route::get('/mgrAgama/{id}', [RefAgamaController::class, 'delAgama']);
     Route::get('/mgrProfesi', [RefProfesiController::class, 'index']);
         Route::post('/mgrProfesi/add', [RefProfesiController::class, 'addProfesi']);
     Route::get('/mgrVendor', [RefVendorSavingController::class, 'index']);

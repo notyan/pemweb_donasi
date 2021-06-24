@@ -155,20 +155,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         @method('PUT')
                         <table>
                             <tr>
-                                <td>Nama Program</td>
-                                <td><input type="text" name="nama_program" id="nama_program" value="{{ $data->nama_program }}"></td>
+                                <td width="150px">Nama Program</td>
+                                <td><input style="width: 500px" class="form-control" type="text" name="nama_program" id="nama_program" value="{{ $data->nama_program }}"></td>
                             </tr>
                             <tr>
                                 <td>Info</td>
-                                <td><textarea name="info" id="info">{{ $data->info }}</textarea></td>
+                                <td><textarea style="width: 500px;" class="form-control"  name="info" id="info">{{ $data->info }}</textarea></td>
                             </tr>
                             <tr>
                                 <td>Target</td>
-                                <td><input type="number" name="target" id="target" value="{{ $data->target }}"></td>
+                                <td><input style="width: 500px" class="form-control" type="number" name="target" id="target" value="{{ $data->target }}"></td>
                             </tr>
                             <tr>
                                 <td>Batas Akhir</td>
-                                <td><input type="date" name="batas_akhir" id="batas_akhir" value="{{ $data->batas_akhir }}"></td>
+                                <td><input style="width: 500px" class="form-control" type="date" name="batas_akhir" id="batas_akhir" value="{{ $data->batas_akhir }}"></td>
                             </tr>
                         </table>
                         <button class="btn btn-dark " type="submit" >Perbarui</button>

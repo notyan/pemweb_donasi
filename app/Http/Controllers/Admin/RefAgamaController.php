@@ -16,6 +16,12 @@ class RefAgamaController extends Controller
            'agama' => $agama
        ]);
     }
+    public function delAgama($id){
+        $agama = RefAgama::find( $id);
+        $agama->delete();
+        echo ("Agama Sudah Terhapus.");
+        return redirect('/admin/mgrAgama');
+    }
     public function addAgama(Request $request){
         $agama = new RefAgama;
         $agama->nama = $request->nama;
