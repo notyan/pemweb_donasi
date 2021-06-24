@@ -52,7 +52,8 @@
           <li><a class="nav-link active " href="/">Beranda</a></li>
           <li><a class="nav-link " href="{{ route('blog') }}">Blog</a></li>
           <li><a class="nav-link " href="{{ route('berita') }}">Berita</a></li>
-          <li><a class="nav-link " href="/about">About</a></li>
+          <li><a class="nav-link " href="{{ url('about') }}">About</a></li>
+          <li><a class="nav-link " href="{{ url('saran') }}">Saran</a></li>
         </ul>
             @if (Route::has('login'))
                 <div class="hidden fixed ">
@@ -104,7 +105,7 @@
                   <div class="col-lg-3">
                     <div class="member" >
                       <div class="member-info">
-                          <h4>{{ $a-> nama_program}}</h4>
+                          <h4><a href="">{{ $a-> nama_program}}</a></h4>
                           <h5>{{ $a-> target}}</h5>
                           <p>{{ $a-> info}}</p>
                           
@@ -119,7 +120,7 @@
     </section><!-- End Team Section -->
 
   <!-- ======= Berita Section ======= -->
-    <section id="berita" class="faq section-bg overflow-auto" style="height: 600px;">
+    <section id="berita" class="faq section-bg overflow-auto" style="height: 400px;">
       <div class="container" >
 
         <div class="section-title">
@@ -138,8 +139,8 @@
       </div>
     </section><!-- End Berita Section -->
 
-    <section id="blog" class="faq section-bg overflow-auto" style="height: 600px;">
-      <div class="container" >
+    <section id="blog" class="faq section-bg overflow-auto" style="height: 600px;" >
+      <div class="container" style="margin-bottom: 400px;" >
 
         <div class="section-title">
           <h2>Blog</h2>

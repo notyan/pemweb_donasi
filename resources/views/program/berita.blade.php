@@ -40,7 +40,7 @@
 
 <body>
 
-   <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
@@ -50,10 +50,11 @@
 
       <nav id="navbar" class="navbar navbar-fixed-top">
         <ul>
-          <li><a class="nav-link " href="/">Beranda</a></li>
+          <li><a class="nav-link active " href="/">Beranda</a></li>
           <li><a class="nav-link " href="{{ route('blog') }}">Blog</a></li>
           <li><a class="nav-link " href="{{ route('berita') }}">Berita</a></li>
-          <li><a class="nav-link " href="/about">About</a></li>
+          <li><a class="nav-link " href="{{ url('about') }}">About</a></li>
+          <li><a class="nav-link " href="{{ url('saran') }}">Saran</a></li>
         </ul>
             @if (Route::has('login'))
                 <div class="hidden fixed ">
@@ -79,8 +80,10 @@
 
                 <div class="section-title">
                     <br><br>
-                        <h2>{!! $data_berita->konten_berita !!}</h2>
-                        <h3>Info tentang program</h3>
+                        <h2>{{ $data_berita->judul }}</h2>
+                        <h3>Beritaa</h3>
+                        <p>{!! $data_berita->konten_berita !!}</p>
+                        <h3>Informasi tentag Program Terkait</h3>
                         <br>
                         <div class="row ">
                             <div class="col-lg-3" >
