@@ -105,10 +105,10 @@
                   <div class="col-lg-3">
                     <div class="member" >
                       <div class="member-info">
-                          <h4><a href="">{{ $a-> nama_program}}</a></h4>
+                          <h4>{{ $a-> nama_program}}</h4>
                           <h5>{{ $a-> target}}</h5>
                           <p>{{ $a-> info}}</p>
-                          
+                          <a href="{{ route('program.donasi', ['id' => $a->id]) }}" class="btn btn-success">Donasi!</a>
                       </div>
                     </div>
                   </div>

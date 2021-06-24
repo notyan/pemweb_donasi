@@ -81,46 +81,8 @@
                 <div class="section-title">
                     <br><br>
                         <h2>{{ $data_berita->judul }}</h2>
-                        <h3>Beritaa</h3>
+                        <h3>Berita</h3>
                         <p>{!! $data_berita->konten_berita !!}</p>
-                        <h3>Informasi tentag Program Terkait</h3>
-                        <br>
-                        <div class="row ">
-                            <div class="col-lg-3" >
-                                <div class="member"  style="height:120px; padding-top:30px;" >
-                                  <div class="member-info" style="margin:0px;">
-                                    <h4>Pemilik</h4>
-                                    <p>{{ DB::table('users')->where('id', $data_program->id_user)->get()->first()->name }} </p>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="member align-item-center"style="height:120px; padding-top:30px;">
-                                  <div class="member-info">
-                                    <h4>Target</h4>
-                                    <p>{{ $data_program->target }} </p>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="member " style="height:120px; padding-top:30px;" >
-                                  <div class="member-info">
-                                    <h4>Batas Akhir</h4>
-                                    <p>{{ $data_program->batas_akhir }} </p>
-                                  </div>
-                                </div>
-                            </div>
-                             <div class="col-lg-3">
-                                 <a href="{{ route('program.donasi', ['id' => $data_program->id]) }}">
-                                <div class="member" style="background-color: #289672;height:120px; padding-top:30px;" >
-                                    <div class="member-info">
-                                      <h2 style="color: white;">Donasi</h2>
-                                  </div>
-                                </div>
-                                </a>
-                            </div>
-                             
-                        </div>
                     <br>
                 </div>
             </div>
