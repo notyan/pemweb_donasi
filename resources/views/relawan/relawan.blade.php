@@ -49,7 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <span class="brand-text font-weight-light">Admin Kibatisa</span>
+      <span class="brand-text font-weight-light">Relawan Kibatisa</span>
     </a>
 
     <!-- Sidebar -->

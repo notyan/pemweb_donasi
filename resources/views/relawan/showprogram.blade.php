@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <span class="brand-text font-weight-light">Admin Kibatisa</span>
+      <span class="brand-text font-weight-light">Relawan Kibatisa</span>
     </a>
 
     <!-- Sidebar -->
@@ -149,7 +149,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-body">
+               <div class="card-body">
+                    <h5>{{ $data->nama_program }}</h5>
                     <table class="table ">
                         <tr>
                             <td>Nama Program</td>
