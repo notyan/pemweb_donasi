@@ -38,7 +38,7 @@ class SaranController extends Controller
         $request->validate([
             'nama' => 'required',
             'email' => 'required|email',
-            'noHp' => 'required|min:6',
+            'noHp' => 'required|min:8',
             'captcha' => 'required|captcha'
         ]);
         $saran->save();

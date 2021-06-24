@@ -185,6 +185,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-body">
                 <h5><b>Tambah Daftar Agama</b></h5>
+                @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                   <form action='/admin/mgrAgama/add' method="post">
                     <div class='row row-cols-lg-5'>
                       <div class="col input-group  mb-3 ">

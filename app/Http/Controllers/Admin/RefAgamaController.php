@@ -22,6 +22,10 @@ class RefAgamaController extends Controller
         $agama->is_active = $request->isActive;
         $agama->inserted_by = Auth::user()->name;
         $agama->edited_by =Auth::user()->name;
+        $request->validate([
+            'nama' => 'required',
+            'isActive' => 'required',
+        ]);
         $agama->save();
         return redirect('/admin/mgrAgama');
     }

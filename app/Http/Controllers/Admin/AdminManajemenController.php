@@ -27,6 +27,9 @@ class AdminManajemenController extends Controller
         $provinsi->is_verified = 1;
         $provinsi->inserted_by = Auth::user()->name;
         $provinsi->edited_by = Auth::user()->name;
+        $request->validate([
+            'namaProv' => 'required',
+        ]);
         $provinsi->save();
         return redirect('/admin/mgrWilayah');
     }
@@ -37,6 +40,10 @@ class AdminManajemenController extends Controller
         $kabupaten->is_verified = 1;
         $kabupaten->inserted_by = Auth::user()->name;
         $kabupaten->edited_by = Auth::user()->name;
+        $request->validate([
+            'namaKab' => 'required',
+            'idProv' => 'required',
+        ]);
         $kabupaten->save();
         return redirect('/admin/mgrWilayah');
     }
@@ -47,6 +54,10 @@ class AdminManajemenController extends Controller
         $kecamatan->is_verified = 1;
         $kecamatan->inserted_by = Auth::user()->name;
         $kecamatan->edited_by = Auth::user()->name;
+        $request->validate([
+            'namaKec' => 'required',
+            'idKab' => 'required',
+        ]);
         $kecamatan->save();
         return redirect('/admin/mgrWilayah');
     }
@@ -57,6 +68,10 @@ class AdminManajemenController extends Controller
         $kelurahan->is_verified = 1;
         $kelurahan->inserted_by = Auth::user()->name;
         $kelurahan->edited_by = Auth::user()->name;
+        $request->validate([
+            'namaKel' => 'required',
+            'idKec' => 'required',
+        ]);
         $kelurahan->save();
         return redirect('/admin/mgrWilayah');
     }
@@ -77,6 +92,12 @@ class AdminManajemenController extends Controller
         $rekening->is_active = $request->isActive;
         $rekening->inserted_by = Auth::user()->name;
         $rekening->edited_by = Auth::user()->name;
+        $request->validate([
+            'idVendor' => 'required',
+            'namaRek' => 'required',
+            'noRek' => 'required',
+            'isActive' => 'required',
+        ]);
         $rekening->save();
         return redirect('/admin/mgrRekening');
     }

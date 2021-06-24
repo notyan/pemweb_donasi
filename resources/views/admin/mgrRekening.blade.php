@@ -183,8 +183,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                  <br/>
+                <h5 >Tambah Rekening</h5>
+                  @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                   <form action='/admin/mgrRekening/add' method="post">
                     <div class='row row-cols-lg-8'>
                       <div class="col input-group mb-3">
@@ -202,8 +210,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class='row row-cols-lg-8'>
                       <div class="col input-group mb-3">
-                        <span class="input-group-text col-lg-2"style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Nomor Rek</span>
-                        <input class="form-control col-lg-8" type="text" name="noRek" placeholder="No Rekening/No E-Wallet"/>
+                        <span class="input-group-text col-lg-2" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Nomor Rek</span>
+                        <input class="form-control col-lg-8" type="number" name="noRek" placeholder="No Rekening/No E-Wallet"/>
                       </div>
                       <div class="col input-group mb-3">
                         <span class="input-group-text" style="border-radius: 4px 0px 0px 4px;" id="basic-addon1">Status   </span>

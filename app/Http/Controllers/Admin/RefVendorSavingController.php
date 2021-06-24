@@ -21,6 +21,9 @@ class RefVendorSavingController extends Controller
         $vendor->nama = $request->nama;
         $vendor->inserted_by = Auth::user()->name;
         $vendor->edited_by =Auth::user()->name;
+        $request->validate([
+            'nama' => 'required',
+        ]);
         $vendor->save();
         return redirect('/admin/mgrVendor');
     }

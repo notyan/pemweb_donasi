@@ -83,7 +83,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="assets/img/logo.png" class="img-fluid animated" alt="">
+          <a href="https://www.freepik.com/free-photos-vectors/food"><img src="{{ URL::asset('img/logo.png') }}" class="img-fluid animated" alt=""></a>
         </div>
       </div>
     </div>

@@ -22,6 +22,10 @@ class RefProfesiController extends Controller
         $profesi->is_active = $request->isActive;
         $profesi->inserted_by = Auth::user()->name;
         $profesi->edited_by =Auth::user()->name;
+        $request->validate([
+            'nama' => 'required',
+            'isActive' => 'required',
+        ]);
         $profesi->save();
         return redirect('/admin/mgrProfesi');
     }

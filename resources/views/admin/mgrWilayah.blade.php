@@ -184,6 +184,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-body">
                 <h5>Tambah Provinsi</h5></br>
+                @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 <form action='/admin/mgrWilayah/addProv' method="post">
                   {{ csrf_field() }}
                   <div class='row row-cols-lg-8'>
@@ -201,6 +210,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-body">    
                 <h5>Tambah Kabupaten</h5></br>
+                @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 <form action='/admin/mgrWilayah/addKab' method="post">
                   {{ csrf_field() }}
                   <div class='row row-cols-lg-8'>
@@ -230,6 +248,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-body">   
                 <h5 >Tambah Kecamatan</h5></br>
+                @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 <form action='/admin/mgrWilayah/addKec' method="post">
                   {{ csrf_field() }}
                   <div class='row row-cols-lg-8'>
@@ -260,6 +287,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-body">  
                 <h5 >Tambah Kelurahan</h5></br>
+                @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 <form action='/admin/mgrWilayah/addKel' method="post">
                   {{ csrf_field() }}
                   <div class='row row-cols-lg-8'>

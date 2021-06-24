@@ -183,8 +183,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Tambah Profesi</h5>
-                  </br>
+                <h5>Tambah Vendor</h5>
+                  @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                   
                     <form action='/admin/mgrVendor/add' method="post">
                       <div class='row row-cols-lg-4'>
