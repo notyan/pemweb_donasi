@@ -1015,7 +1015,7 @@ section {
 }
 
 .team .member .member-info {
-  padding-left: 16px;
+  padding-left: 0px;
 }
 
 .team .member h4 {
@@ -1708,14 +1708,42 @@ section {
   }
 }
 
-.add{
+.kartu{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-}.box:hover{
+}.kartu:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .bttn {
   font-size: 100px;
   font-weight: bold;
+}
+
+html,body{
+    height: 100%
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #1e6f5c;
+}
+
+tengah{
+  text-align: center;
+  margin:auto;
+  padding-top: 50px;
 }

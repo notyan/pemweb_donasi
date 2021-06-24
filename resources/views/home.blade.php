@@ -43,16 +43,16 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">KibaTisa</a></h1>
+      <h1 class="logo me-auto"><a href="/">KibaTisa</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar navbar-fixed-top">
         <ul>
-          <li><a class="nav-link  active" href="#">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('blog') }}">Blog</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('berita') }}">Berita</a></li>
-          <li><a class="nav-link scrollto" href="./blog.html">About</a></li>
+          <li><a class="nav-link active " href="/">Beranda</a></li>
+          <li><a class="nav-link " href="{{ route('blog') }}">Blog</a></li>
+          <li><a class="nav-link " href="{{ route('berita') }}">Berita</a></li>
+          <li><a class="nav-link " href="/about">About</a></li>
         </ul>
             @if (Route::has('login'))
                 <div class="hidden fixed ">
@@ -130,7 +130,7 @@
         <div class="faq-list">
           <ul>
             @foreach($programBerita as $b)
-                <li class="box"><a href="{{ route('berita.baca', ['id' => $b->id]) }}">{{ $b->judul }}</a></li>
+              <li class="kartu"><a href="{{ route('berita.baca', ['id' => $b->id]) }}">{{ $b->judul }}</a></li>
             @endforeach
           </ul>
         </div>
@@ -138,27 +138,27 @@
       </div>
     </section><!-- End Berita Section -->
 
-    <section id="blog" clas="faq section-bg overflow-auto" style="height: 600px">
-        <div class="container" >
+    <section id="blog" class="faq section-bg overflow-auto" style="height: 600px;">
+      <div class="container" >
 
-            <div class="section-title">
-                <h2>Blog</h2>
-                <p>Lihat blog menarik dari kami</p>
-            </div>
-
-            <div class="faq-list">
-                <ul>
-                    @foreach($kontenBlog as $c)
-                        <li class="box"><a href="{{ route('blog.baca', ['id' => $c->id]) }}">{{ $c->judul }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-
+        <div class="section-title">
+          <h2>Blog</h2>
+          <p>Lihat Blog menarik terkait program kami</p>
         </div>
+
+        <div class="faq-list">
+          <ul>
+            @foreach($kontenBlog as $c)
+              <li class="kartu"><a href="{{ route('blog.baca', ['id' => $c->id]) }}">{{ $c->judul }}</a></li>
+            @endforeach
+          </ul>
+        </div>
+
+      </div>
     </section>
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" class="fixed-bottom">
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
