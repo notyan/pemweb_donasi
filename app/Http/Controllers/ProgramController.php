@@ -29,9 +29,8 @@ class ProgramController extends Controller
     public function showBerita($id)
     {
         $data_berita = DB::table('program_berita')->where('id', $id)->get()->first();
-        $data_program = DB::table('program')->where('id', $data_berita->id_program)->get()->first();
 
-        return view('program.berita', compact('data_berita', 'data_program'));
+        return view('program.berita', compact('data_berita'));
     }
 
     public function regDonatur($id)
@@ -85,8 +84,6 @@ class ProgramController extends Controller
             'inserted_at' => now(),
             'inserted_by' => $request->nama_pengirim
         ]);
-
-        $id_berita = DB::table('program_berita')->where('id_program', $id)->get()->first()->id;
-        return redirect()->route('berita.baca', ['id' => $id_berita]);
+        return redirect()->route('home');
     }
 }

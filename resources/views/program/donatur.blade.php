@@ -82,47 +82,73 @@
                     <br><br>
                     <h2>Donasi</h2>
                         <div class="icon-box">
-                            <form action="" method="post">
-                                @csrf
-                                <table>
-                                    <tr>
-                                        <td>Nama Pengirim</td>
-                                        <td><input type="text" name="nama_pengirim"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Vendor</td>
-                                        <td>
-                                        <select name="vendor">
+                            <form method="post" action="{{ route('program.donasi', ['id' => $data_program->id]) }}">
+                            @csrf
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nama Pengirim</label>
+                                    <input type="text" class="form-control" id="name" name="nama_pengirim">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="vendor" class="form-label">Vendor</label>
+                                    <select class="form-select" name="vendor" id="vendor">
                                         @foreach($list_vendor as $vendor)
                                             <option value="{{ $vendor->id }}">{{ $vendor->nama }}</option>
                                         @endforeach
-                                        </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No Rekening</td>
-                                        <td><input type="text" name="no_rekening_pengirim"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama atas nama Rekening</td>
-                                        <td><input type="text" name="nama_atas_nama"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nominal Donasi</td>
-                                        <td><input type="number" name="nominal_donasi"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td><input type="email" name="email"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pesan</td>
-                                        <td><textarea name="pesan"></textarea></td>
-                                    </tr>
-                                </table>
-                                <input type="submit" value="Donasi!">
-                                </form>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="norek" class="form-label">No Rekening</label>
+                                    <input type="text" class="form-control" id="norek" name="no_rekening_pengirim">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nama_atas_nama" class="form-label">Nama atas nama Rekening</label>
+                                    <input type="text" class="form-control" id="nama_atas_nama" name="nama_atas_nama">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nominal_donasi" class="form-label">Nominal Donasi</label>
+                                    <input type="number" class="form-control" id="nominal_donasi" name="nominal_donasi">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pesan" class="form-label">Pesan</label>
+                                    <textarea class="form-control" id="pesan" name="pesan"></textarea>
+                                </div>
+                                <input class="btn btn-success" type="submit" value="Donasi!">
+                            </form>
                         </div>
+                        <section id="team" class="team section-bg">
+                            <h3>Informasi tentang Program Terkait</h3>
+                            <br>
+                            <div class="row ">
+                                <div class="col-lg-4" >
+                                    <div class="member"  style="height:120px; padding-top:30px;" >
+                                    <div class="member-info" style="margin:0px;">
+                                        <h4>Pemilik</h4>
+                                        <p>{{ DB::table('users')->where('id', $data_program->id_user)->get()->first()->name }} </p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="member align-item-center"style="height:120px; padding-top:30px;">
+                                    <div class="member-info">
+                                        <h4>Target</h4>
+                                        <p>{{ $data_program->target }} </p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="member " style="height:120px; padding-top:30px;" >
+                                    <div class="member-info">
+                                        <h4>Batas Akhir</h4>
+                                        <p>{{ $data_program->batas_akhir }} </p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                         <br>
                 </div>
             </div>

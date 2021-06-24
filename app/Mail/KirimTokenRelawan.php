@@ -32,7 +32,8 @@ class KirimTokenRelawan extends Mailable
      */
     public function build()
     {
-        return $this->from('webdonasi@kel3.com')
+        return $this->from('kibatisa@kel2.com')
+                    ->subject('Token Aktivasi Relawan')
                     ->view('relawan.email-token')
                     ->with([
                         'username' => Auth::user()->name,
