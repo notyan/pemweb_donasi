@@ -14,7 +14,7 @@
                      <a href="/admin" ><b>Menuju Dashboard Admin</b></a>
                     @endif
                     @if(DB::table('relawan')->where('id_user', Auth::id())->get()->first())
-                          <a href="/admin"><b>Menuju Dashboard Relawan</b></a>
+                          <a href="/relawan"><b>Menuju Dashboard Relawan</b></a>
                     @else
                          <p>Tertarik untuk menjadi relawan ? <a href="/relawan/daftar"><b> Daftar</b></a></p>
                     @endif

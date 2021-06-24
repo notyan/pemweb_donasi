@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Tips Budidaya</title>
+    <title>KIBATISA | Program Aktif</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -50,10 +50,11 @@
 
       <nav id="navbar" class="navbar navbar-fixed-top">
         <ul>
-          <li><a class="nav-link " href="/">Beranda</a></li>
+          <li><a class="nav-link active " href="/">Beranda</a></li>
           <li><a class="nav-link " href="{{ route('blog') }}">Blog</a></li>
-          <li><a class="nav-link active" href="{{ route('berita') }}">Berita</a></li>
-          <li><a class="nav-link " href="/about">About</a></li>
+          <li><a class="nav-link " href="{{ route('berita') }}">Berita</a></li>
+          <li><a class="nav-link " href="{{ url('about') }}">About</a></li>
+          <li><a class="nav-link " href="{{ url('saran') }}">Saran</a></li>
         </ul>
             @if (Route::has('login'))
                 <div class="hidden fixed ">
