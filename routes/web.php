@@ -29,7 +29,7 @@ use App\Http\Controllers\Relawan\RelawanController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', function () {
     return view('about');
 });
